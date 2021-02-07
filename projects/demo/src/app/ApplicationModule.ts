@@ -41,7 +41,7 @@ export class ApplicationModule
     {
         app.title = "Demo";
         app.setFormsDefinitions(forms);
-        setTimeout(() => this.showform(),1000);
+        //app.showform("test1");
     }
 
     public showform() : void
