@@ -41,10 +41,8 @@ export class ApplicationModule
     {
         app.title = "Demo";
         app.setFormsDefinitions(forms);
-        //app.showform("test1");
-        //this.showform();
         setTimeout(() => this.showform(),1000);
-      }
+    }
 
     public showform() : void
     {
@@ -53,6 +51,6 @@ export class ApplicationModule
       if (this.form == "test1") this.form = "test2";
       else this.form = "test1";
 
-      //setTimeout(function() {this.showform()},10000);
+      setTimeout(() => this.showform(),1000);
     }
 }

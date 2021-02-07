@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
     selector: 'test2',
     template:
     `
-      Hello from Test2 VII {{n}} <button (click)="add()">Test1</button>
+      Hello from Test2 {{n}} <button (click)="add()">Test1</button>
     `,
     styleUrls: []
   })
