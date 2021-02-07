@@ -51,6 +51,6 @@ export class ApplicationModule
       if (this.form == "test1") this.form = "test2";
       else this.form = "test1";
 
-      setTimeout(() => this.showform(),1000);
+      setTimeout(() => this.showform(),10000);
     }
 }
