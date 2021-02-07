@@ -1,5 +1,5 @@
 <div style="position: absolute; margin-top: 4px; margin-left: 4px;">
-    <button mat-mini-fab color="primary">
+    <button mat-mini-fab color="primary" (click)="sidenav=!sidenav">
       <mat-icon>menu</mat-icon>
     </button>
   </div>
@@ -18,12 +18,15 @@
     <tr style="height: 5px;"></tr>
     <tr>
       <td valign="top" style="width: 1px;">
-        FormsMenu
+        <div id="menu" [style.display]="sidenav ? 'block' : 'none'" style=" padding-top: 16px; padding-right: 25px">
+          FormsMenu
+        </div>
       </td>
 
       <td valign="top">
-        <div name="form" style="display: flex; justify-content: center;">
+        <div name="form" style="display: flex; justify-content: center; margin-top: 25px;">
             FORM
+            <form></form>
         </div>
       </td>
       <td></td>
