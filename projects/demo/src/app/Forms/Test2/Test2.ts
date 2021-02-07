@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'test1',
+    selector: 'test2',
     template:
     `
-      Hello from Test1 VII {{n}} <button (click)="add()">Test1</button>
+      Hello from Test2 VII {{n}} <button (click)="add()">Test1</button>
     `,
     styleUrls: []
   })
 
 
-  export class Test1
+  export class Test2
   {
     public n:number = 1;
 
