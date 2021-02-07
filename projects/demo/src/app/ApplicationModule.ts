@@ -5,11 +5,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 // Formsdefinitions
 
+import { Test1 } from './Forms/Test1/Test1';
+
 
 
 @NgModule({
   declarations: [
-    ApplicationRoot
+    ApplicationRoot,
+    Test1
   ],
   imports: [
     BrowserModule,
