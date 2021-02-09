@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
     selector: 'forms-app',
     templateUrl: './ApplicationRoot.html',
     styleUrls: []
-  })
+})
 
 
 export class ApplicationRoot
