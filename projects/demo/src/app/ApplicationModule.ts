@@ -18,7 +18,6 @@ const forms:FormsDefinition[] =
 ];
 
 
-
 @NgModule({
   declarations: [
     ApplicationRoot,
@@ -40,6 +39,5 @@ export class ApplicationModule
     {
         app.title = "Demo";
         app.setFormsDefinitions(forms);
-        app.showpopup(TestPopup);
     }
 }
