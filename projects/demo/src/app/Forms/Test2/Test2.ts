@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     selector: 'test2',
     template:
     `
-      Hello from Test2 {{n}} <button (click)="add()">Test1</button>
+      Test2 <button (click)="add()">Up</button>
     `,
 	styleUrls: []
 })
@@ -19,5 +19,6 @@ export class Test2 extends Form
 	public add()
 	{
 		this.n++;
+		window.alert("n = "+this.n);
 	}
 }
