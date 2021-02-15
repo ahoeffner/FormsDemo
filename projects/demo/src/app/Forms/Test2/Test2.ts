@@ -1,4 +1,5 @@
 import { Form } from 'm42forms';
+import { Test3 } from '../Test3/Test3';
 import { Component } from '@angular/core';
 
 
@@ -20,8 +21,19 @@ export class Test2 extends Form
 {
 	public n:number = 1;
 
-	public add()
+	constructor()
 	{
-		this.n++;
+	  super();
+	  this.setCallback(this.callback);
 	}
-  }
+
+	  public add()
+	  {
+		  this.n++;
+	  }
+
+	public callback(form:Form) : void
+	{
+	  console.log(form.constructor.name+" closed n="+(form as Test3).n);
+	}
+}

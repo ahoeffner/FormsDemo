@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { ApplicationRoot } from './ApplicationRoot';
 import { MaterialModules } from './MaterialModules';
 import { BrowserModule } from '@angular/platform-browser';
-import { Application, FormsLibrary, FormsDefinition } from 'm42forms';
+import { Application, FormsLibrary, FormDefinition } from 'm42forms';
 
 // Formsdefinitions
 
@@ -11,7 +11,7 @@ import { Test2 } from './Forms/Test2/Test2';
 import { Test3 } from './Forms/Test3/Test3';
 
 
-const forms:FormsDefinition[] =
+const forms:FormDefinition[] =
 [
     {component: Test1, title: "Demo Form Test1", path: "/forms/test1"},
     {component: Test2, title: "Demo Form Test2", path: "/forms/test2"},
