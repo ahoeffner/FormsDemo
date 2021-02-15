@@ -1,7 +1,7 @@
 import { Block1 } from './/Block1';
 import { Test2 } from '../Test2/Test2';
 import { Component } from '@angular/core';
-import { BlockDefinition, Form } from 'm42forms';
+import { Form, FormBlock } from 'm42forms';
 
 
 @Component({
@@ -23,19 +23,14 @@ import { BlockDefinition, Form } from 'm42forms';
 export class Test1 extends Form
 {
   public n:number = 1;
-  public block1:Block1;
+  @FormBlock("emp") public empblock:Block1;
+
 
   constructor()
   {
     super();
-    this.block1 = new Block1();
+    this.empblock = new Block1();
     this.setCallback(this.callback);
-
-    let blocks:BlockDefinition[] =
-    [
-      {block: this.block1}
-    ];
-
   }
 
 	public add()
