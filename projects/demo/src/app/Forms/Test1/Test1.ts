@@ -30,7 +30,6 @@ export class Test1 extends Form
   {
     super();
     this.setCallback(this.callback);
-    console.log("Hello I");
   }
 
 	public add()
