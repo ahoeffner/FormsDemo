@@ -10,7 +10,7 @@ import { Form, BLOCK } from 'm42forms';
     `
       <div style="background-color: coral;">
       Test1 {{n}} <button (click)="add()">Up</button>
-      <button (click)="callForm('test2')">Test2</button>
+      <button (click)="callform('test2')">Test2</button>
       <button (click)="close()">Close</button>
       <button (click)="emp.sayHello('World')">Hello</button>
       </div>
@@ -39,6 +39,6 @@ export class Test1 extends Form
   public callback(form:Form, cancelled:boolean) : void
   {
     console.log((form as Test2).n+" cancel="+cancelled);
-    this.clearStack();
+    //this.clearStack();
   }
 }

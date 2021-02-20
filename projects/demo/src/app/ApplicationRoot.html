@@ -1,13 +1,13 @@
-  <div style="position: absolute; margin-top: 4px; margin-left: 4px;">
+  <div style="position: absolute; margin-left: 4px; height: 8px;">
     <button mat-mini-fab color="primary" (click)="sidenav=!sidenav">
       <mat-icon>menu</mat-icon>
     </button>
   </div>
 
-  <table style="height: 100%; width: 100%">
-    <tr style="height: 48px">
-      <td></td>
-      <td>
+  <table style="height: 100%; width: 100%; border-collapse: collapse;">
+    <tr style="height: 1.5em;">
+      <td [ngStyle]="{'background-color': barcolor}"></td>
+      <td [ngStyle]="{'background-color': barcolor}">
         <div name="form" style="display: flex; justify-content: center;">
             menu-bar
         </div>

@@ -1,3 +1,4 @@
+import { Preferences } from 'm42forms';
 import { Component } from '@angular/core';
 
 
@@ -11,4 +12,5 @@ import { Component } from '@angular/core';
 export class ApplicationRoot
 {
     public sidenav:boolean = true;
+    public barcolor:string = new Preferences().primaryColor;
 }

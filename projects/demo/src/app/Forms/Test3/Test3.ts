@@ -1,5 +1,4 @@
 import { Form } from 'm42forms';
-import { Test1 } from '../Test1/Test1';
 import { Component } from '@angular/core';
 
 
@@ -9,7 +8,7 @@ import { Component } from '@angular/core';
     `
     <div style="background-color: coral;">
     Test3 {{n}} <button (click)="add()">Up</button>
-    <button (click)="callForm('test1')">Test1</button>
+    <button (click)="callform('test1')">Test1</button>
     <button (click)="close()">Close</button>
     </div>
   `,

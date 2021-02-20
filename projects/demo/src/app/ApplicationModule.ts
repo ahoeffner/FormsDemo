@@ -9,6 +9,7 @@ import { Application, FormsLibrary, FormDefinition } from 'm42forms';
 import { Test1 } from './Forms/Test1/Test1';
 import { Test2 } from './Forms/Test2/Test2';
 import { Test3 } from './Forms/Test3/Test3';
+import { ImageTest } from './Forms/Image';
 
 
 const forms:FormDefinition[] =
@@ -22,7 +23,7 @@ const forms:FormDefinition[] =
 @NgModule({
   declarations: [
     ApplicationRoot,
-    Test1, Test2, Test3
+    Test1, Test2, Test3, ImageTest
   ],
   imports: [
     BrowserModule,
@@ -40,6 +41,6 @@ export class ApplicationModule
     {
         app.title = "Demo";
         app.setFormsDefinitions(forms);
-        app.showform("test1");
+        app.preferences.primaryColor = "yellow";
     }
 }
