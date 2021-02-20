@@ -25,21 +25,20 @@ export class Test1 extends Form
   public n:number = 1;
   @BLOCK("emp") public emp:Block1 = new Block1();
 
-
-  constructor()
-  {
-    super();
-    this.setCallback(this.callback);
-  }
-
 	public add()
 	{
 		this.n++;
 	}
 
-  public callback(form:Form) : void
+  public start() : void
   {
-    console.log(form.constructor.name+" closed n="+(form as Test2).n);
+    this.setCallback(this.callback);
+    this.getParameters().forEach((value,key) => {console.log(key+"="+value)});
+  }
+
+  public callback(form:Form, cancelled:boolean) : void
+  {
+    console.log((form as Test2).n+" cancel="+cancelled);
     this.clearStack();
   }
 }

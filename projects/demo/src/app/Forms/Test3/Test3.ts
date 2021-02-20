@@ -19,21 +19,10 @@ import { Component } from '@angular/core';
 
 export class Test3 extends Form
 {
-  public n:number = 1;
-
-  constructor()
-  {
-    super();
-    this.setCallback(this.callback);
-  }
+	public n:number = 1;
 
 	public add()
 	{
 		this.n++;
 	}
-
-  public callback(form:Form) : void
-  {
-    console.log(form.constructor.name+" closed n="+(form as Test1).n);
-  }
 }

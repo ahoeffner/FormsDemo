@@ -40,5 +40,6 @@ export class ApplicationModule
     {
         app.title = "Demo";
         app.setFormsDefinitions(forms);
+        app.showform("test1");
     }
 }
