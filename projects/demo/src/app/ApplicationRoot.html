@@ -1,16 +1,16 @@
-  <div style="position: absolute; height: 1.75em; top: 0; bottom: 0; z-index: 1">
-    <mat-icon style="position: absolute; top: 50%; transform: translateY(-50%); cursor: pointer; color: white;" (click)="sidenav=!sidenav">menu</mat-icon>
+  <div class="toggle">
+    <mat-icon class="toggle-button" (click)="sidenav=!sidenav">menu</mat-icon>
   </div>
 
-  <div style="position: absolute; height: 1.75em; width: 1.75em; top: 0; right: 0; border-left: 1px solid black;  z-index: 1">
-    <button style="position: relative; width: 100%; height: 100%; top: 50%; transform: translateY(-50%); color: white; border:none; background: transparent; font-size: 0.75em; font-weight: bold;">X</button>
+  <div class="close">
+    <button class="close-button" (click)="close();" [ngStyle]="{'color': btncolor}">X</button>
   </div>
 
   <table style="position: absolute; top: 0; left: 0; height: 100%; width: 100%; border-collapse: collapse;">
     <tr style="height: 1.75em; border-bottom: 2px solid black;">
       <td [ngStyle]="{'background-color': barcolor}"></td>
       <td [ngStyle]="{'background-color': barcolor}">
-        <div name="form" style="display: flex; justify-content: center;">
+        <div name="form" style="display: flex; justify-content: center; color: white;">
             menu-bar
         </div>
       </td>
