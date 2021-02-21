@@ -1,14 +1,14 @@
 import { Block1 } from './/Block1';
 import { Test2 } from '../Test2/Test2';
-import { Component } from '@angular/core';
 import { Form, BLOCK } from 'm42forms';
+import { Component } from '@angular/core';
 
 
 @Component({
     selector: 'test1',
     template:
     `
-      <div style="background-color: coral;">
+      <div>
       Test1 {{n}} <button (click)="add()">Up</button>
       <button (click)="callform('test2')">Test2</button>
       <button (click)="close()">Close</button>

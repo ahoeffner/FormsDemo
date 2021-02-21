@@ -1,30 +1,29 @@
   <div class="toggle">
-    <mat-icon class="toggle-button" (click)="sidenav=!sidenav">menu</mat-icon>
+    <mat-icon class="toggle-button" [ngStyle]="{'color': btncolor}" (click)="sidenav=!sidenav">menu</mat-icon>
   </div>
 
   <div class="close">
     <button class="close-button" (click)="close();" [ngStyle]="{'color': btncolor}">X</button>
   </div>
 
-  <table style="position: absolute; top: 0; left: 0; height: 100%; width: 100%; border-collapse: collapse;">
-    <tr style="height: 1.75em; border-bottom: 2px solid black;">
-      <td [ngStyle]="{'background-color': barcolor}"></td>
-      <td [ngStyle]="{'background-color': barcolor}">
-        <div name="form" style="display: flex; justify-content: center; color: white;">
+  <table class="frame">
+    <tr class="topbar" [ngStyle]="{'background-color': barcolor}">
+      <td></td>
+      <td>
+        <div class="menu">
             menu-bar
         </div>
       </td>
     </tr>
-    <tr style="height: 5px;"></tr>
     <tr>
       <td valign="top" style="width: 1px;">
-        <div id="menu" [style.display]="sidenav ? 'block' : 'none'" style=" padding-top: 16px; padding-right: 25px">
+        <div class="formlist" [style.display]="sidenav ? 'block' : 'none'">
           <formlist root="demo"></formlist>
         </div>
       </td>
 
       <td valign="top">
-        <div name="form" style="display: flex; justify-content: center; margin-top: 25px;">
+        <div class="formarea">
             <formarea></formarea>
         </div>
       </td>

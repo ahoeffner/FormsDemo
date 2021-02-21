@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     selector: 'test2',
     template:
     `
-	  <div style="background-color: coral;">
+	  <div>
       Test2 {{n}} <button (click)="add()">Up</button>
       <button (click)="newform('test1')" >new test1</button>
       <button (click)="callform('test1')">call test1</button>
