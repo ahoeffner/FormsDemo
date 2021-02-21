@@ -9,10 +9,11 @@ import { Component } from '@angular/core';
     template:
     `
       <div>
-      Test1 {{n}} <button (click)="add()">Up</button>
+      Test1 <button (click)="add()">Up</button>
       <button (click)="callform('test2')">Test2</button>
       <button (click)="close()">Close</button>
       <button (click)="emp.sayHello('World')">Hello</button>
+      {{n}} 
       </div>
     `,
     styleUrls: []

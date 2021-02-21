@@ -15,7 +15,7 @@ const forms:FormDefinition[] =
 [
     {component: Test1, title: "Demo Form Test1", path: "/forms/test1"},
     {component: Test2, title: "Demo Form Test2", path: "/forms/test2"},
-    {component: Test3, title: "Demo Form Test3", path: "/modal/test3", modal: {}}
+    {component: Test3, title: "Demo Form Test3", path: "/modal/test3", modal: {always: true}}
 ];
 
 

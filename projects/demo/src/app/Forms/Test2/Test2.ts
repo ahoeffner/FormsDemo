@@ -7,11 +7,10 @@ import { Component } from '@angular/core';
     template:
     `
 	  <div>
-      Test2 {{n}} <button (click)="add()">Up</button>
-      <button (click)="newform('test1')" >new test1</button>
-      <button (click)="callform('test1')">call test1</button>
-      <button (click)="showform('test1')">show test1</button>
+      <button (click)="add()">Up</button>
+      <button (click)="callform('test3')">call test3</button>
 	  <button (click)="close()">Close</button>
+	  {{n}}
 	  </div>
     `,
 	styleUrls: []
