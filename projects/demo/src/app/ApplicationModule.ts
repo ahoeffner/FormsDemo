@@ -41,6 +41,8 @@ export class ApplicationModule
     {
         app.title = "Demo";
         app.setFormsDefinitions(forms);
-        app.preferences.primaryColor = "yellow";
+        app.preferences.titleColor = "white";
+        app.preferences.primaryColor = "blue";
+        app.preferences.btnTextColor = "white";
     }
 }
