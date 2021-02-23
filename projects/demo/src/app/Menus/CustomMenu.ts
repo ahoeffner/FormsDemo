@@ -30,25 +30,14 @@ export class CustomMenu implements Menu
 
 class Handler extends MenuHandler
 {
-    public form:Form;
-
-    private enable() : void
+    public onInit(): void
     {
-        if (this.ready && this.form != null)
-        {
-            this.menu.enable();
-        }
     }
 
-    public activate(): void
+    public onFormChange(form: Form): void
     {
-        this.enable();
-    }
-
-    public setForm(form: Form): void
-    {
-        this.form = form;
-        this.enable();
+        if (form != null) this.enable();
+        else              this.disable();
     }
 
     public test1() : void
@@ -59,5 +48,13 @@ class Handler extends MenuHandler
     public test2() : void
     {
         console.log("test2");
+    }
+
+    public  onConnect(): void
+    {
+    }
+
+    public onDisconnect(): void
+    {
     }
 }
