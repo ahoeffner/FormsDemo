@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
     template:
     `
 	  <div>
+	  Test2
+      <button (click)="callform('test3')">Test3</button>
       <button (click)="add()">Up</button>
-      <button (click)="callform('test3')">call test3</button>
-	  <button (click)="close()">Close</button>
-	  {{n}}
+	  state : {{n}}
 	  </div>
     `,
 	styleUrls: []

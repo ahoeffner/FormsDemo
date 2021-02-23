@@ -1,6 +1,6 @@
-import { ControlBlock } from "m42forms";
+import { Block } from "m42forms";
 
-export class Block1 extends ControlBlock
+export class Block1 extends Block
 {
     public sayHello(arg:string): void
     {

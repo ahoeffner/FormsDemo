@@ -40,8 +40,8 @@ export class ApplicationModule
     {
         app.title = "Demo";
         app.setFormsDefinitions(forms);
-        app.preferences.titleColor = "black";
-        app.preferences.primaryColor = "yellow";
-        app.preferences.btnTextColor = "black";
+        app.preferences.colors.title = "black";
+        app.preferences.colors.topbar = "yellow";
+        app.preferences.colors.buttontext = "black";
     }
 }
