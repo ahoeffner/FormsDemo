@@ -20,11 +20,11 @@ import { CustomMenu } from '../../Menus/CustomMenu';
 })
 
 
+@BLOCK("emp",Block1)
 
 export class Test1 extends Form
 {
   public n:number = 1;
-  @BLOCK("emp") public emp:Block1 = new Block1();
 
 	public add()
 	{

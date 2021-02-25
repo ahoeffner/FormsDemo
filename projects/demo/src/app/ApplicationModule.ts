@@ -2,21 +2,13 @@ import { NgModule } from '@angular/core';
 import { ApplicationRoot } from './ApplicationRoot';
 import { MaterialModules } from './MaterialModules';
 import { BrowserModule } from '@angular/platform-browser';
-import { Application, FormsLibrary, FormDefinition } from 'm42forms';
+import { Application, FormsLibrary, FormDefinition, FORM } from 'm42forms';
 
 // Formsdefinitions
 
 import { Test1 } from './Forms/Test1/Test1';
 import { Test2 } from './Forms/Test2/Test2';
 import { Test3 } from './Forms/Test3/Test3';
-
-
-const forms:FormDefinition[] =
-[
-    {component: Test1, title: "Demo Form Test1", path: "/forms/test1"},
-    {component: Test2, title: "Demo Form Test2", path: "/forms/test2"},
-    {component: Test3, title: "Demo Form Test3", path: "/modal/test3", windowopts: {modal: true}}
-];
 
 
 @NgModule({
@@ -34,14 +26,17 @@ const forms:FormDefinition[] =
 })
 
 
+@FORM(Test1,"Demo Form Test1","/forms/test1")
+@FORM(Test2,"Demo Form Test2","/forms/test2")
+@FORM(Test3,"Demo Form Test3","/modal/test3",true,{modal: true})
+
 export class ApplicationModule
 {
+    public func() {}
+
     constructor(app:Application)
     {
         app.title = "Demo";
-        app.setFormsDefinitions(forms);
-        app.preferences.colors.title = "black";
-        app.preferences.colors.topbar = "yellow";
-        app.preferences.colors.buttontext = "black";
+        app.preferences.setTheme("pink");
     }
 }

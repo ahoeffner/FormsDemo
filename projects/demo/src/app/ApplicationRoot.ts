@@ -19,6 +19,6 @@ export class ApplicationRoot
 
     public close() : void
     {
-        this.app.close();
+        this.app.closeform();
     }
 }

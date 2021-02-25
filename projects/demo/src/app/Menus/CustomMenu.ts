@@ -1,4 +1,4 @@
-import { Menu, Form, MenuEntry, MenuHandler } from 'm42forms';
+import { Menu, Form, MenuEntry, MenuHandler, Transaction } from 'm42forms';
 
 
 export class CustomMenu implements Menu
@@ -30,6 +30,9 @@ export class CustomMenu implements Menu
 
 class Handler extends MenuHandler
 {
+    onTransactio(action: Transaction): void {
+        throw new Error('Method not implemented.');
+    }
     public onInit(): void
     {
     }
