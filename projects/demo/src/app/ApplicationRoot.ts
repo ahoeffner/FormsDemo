@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
 
 export class ApplicationRoot
 {
-    public sidenav:boolean = false;
+    public sidenav:boolean = true;
     public barcolor:string = this.app.preferences.colors.topbar;
     public btncolor:string = this.app.preferences.colors.buttontext;
 
@@ -19,6 +19,6 @@ export class ApplicationRoot
 
     public close() : void
     {
-        this.app.closeform();
+        this.app.closeform(true);
     }
 }
