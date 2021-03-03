@@ -1,21 +1,12 @@
 import { Block1 } from './/Block1';
-import { Test2 } from '../Test2/Test2';
-import { Form, BLOCK } from 'm42forms';
 import { Component } from '@angular/core';
+import { Form, BLOCK, INIT } from 'forms42';
 import { CustomMenu } from '../../Menus/CustomMenu';
 
 
 @Component({
     selector: 'test1',
-    template:
-    `
-      <div>
-      Test1
-      <button (click)="callform('test2')">Test2</button>
-      <button (click)="add()">Up</button>
-      state: {{n}}
-      </div>
-    `,
+    templateUrl: 'Test1.html',
     styleUrls: []
 })
 
@@ -24,22 +15,24 @@ import { CustomMenu } from '../../Menus/CustomMenu';
 
 export class Test1 extends Form
 {
-  public n:number = 1;
+  	public n:number = 1;
 
 	public add()
 	{
 		this.n++;
 	}
 
-  public init() : void
-  {
-    this.setMenu(new CustomMenu());
-    this.setCallback(this.callback);
-    this.getParameters().forEach((value,key) => {console.log(key+"="+value)});
-  }
+  	@INIT
+	public init() : void
+	{
+		this.setMenu(new CustomMenu());
+		this.setCallback(this.callback);
+		this.getParameters().forEach((value,key) => {console.log(key+"="+value)});
+	}
 
-  public callback(form:Form, cancelled:boolean) : void
-  {
-    //this.clearStack();
-  }
+	public callback(form:Form, cancelled:boolean) : void
+	{
+		console.log("callback received, cancelled: "+cancelled);
+		this.clearStack();
+	}
 }

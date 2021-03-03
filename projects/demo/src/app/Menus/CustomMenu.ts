@@ -1,4 +1,4 @@
-import { Menu, Form, MenuEntry, MenuHandler, Transaction } from 'm42forms';
+import { Menu, Form, MenuEntry, MenuHandler, Transaction } from 'forms42';
 
 
 export class CustomMenu implements Menu
@@ -17,8 +17,8 @@ export class CustomMenu implements Menu
             {
                 name: "Custom", options:
                 [
-                    {name: "Test1", action: "test1"},
                     {name: "Test2", action: "test2"},
+                    {name: "Test3", action: "test3"},
                 ]
             }
         ];
@@ -30,9 +30,12 @@ export class CustomMenu implements Menu
 
 class Handler extends MenuHandler
 {
-    onTransactio(action: Transaction): void {
+    public onTransactio(action: Transaction): void
+    {
         throw new Error('Method not implemented.');
     }
+
+
     public onInit(): void
     {
     }
@@ -43,14 +46,14 @@ class Handler extends MenuHandler
         else              this.disable();
     }
 
-    public test1() : void
-    {
-        console.log("test1");
-    }
-
     public test2() : void
     {
-        console.log("test2");
+        this.app.showform("test2");
+    }
+
+    public test3() : void
+    {
+        this.app.showform("test3");
     }
 
     public  onConnect(): void

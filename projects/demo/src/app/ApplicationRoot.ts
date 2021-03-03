@@ -1,4 +1,4 @@
-import { Application } from 'm42forms';
+import { Application } from 'forms42';
 import { Component } from '@angular/core';
 
 
@@ -16,6 +16,11 @@ export class ApplicationRoot
     public btncolor:string = this.app.preferences.colors.buttontext;
 
     constructor(private app:Application) {}
+
+    public get title() : string
+    {
+        return(this.app.title);
+    }
 
     public close() : void
     {

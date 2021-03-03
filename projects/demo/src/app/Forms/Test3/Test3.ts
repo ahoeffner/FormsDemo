@@ -1,18 +1,10 @@
-import { Form } from 'm42forms';
+import { Form } from 'forms42';
 import { Component } from '@angular/core';
 
 
 @Component({
     selector: 'test3',
-    template:
-    `
-    <div>
-    Test3
-    <button (click)="callform('test1')">Test1</button>
-    <button (click)="add()">Up</button>
-    state: {{n}}
-    </div>
-  `,
+    templateUrl: 'Test3.html',
     styleUrls: []
 })
 

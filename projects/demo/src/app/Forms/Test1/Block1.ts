@@ -1,4 +1,4 @@
-import { Block } from "m42forms";
+import { Block } from "forms42";
 
 export class Block1 extends Block
 {

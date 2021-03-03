@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { ApplicationRoot } from './ApplicationRoot';
 import { MaterialModules } from './MaterialModules';
 import { BrowserModule } from '@angular/platform-browser';
-import { Application, FormsLibrary, FormDefinition, FORM, Theme } from 'm42forms';
+import { Application, FormsLibrary, FORM } from 'forms42';
 
 // Formsdefinitions
 
@@ -37,6 +37,7 @@ export class ApplicationModule
     constructor(app:Application)
     {
         app.title = "Demo";
-        app.preferences.setTheme("grey");
+        app.setMenu(null);
+        app.preferences.setTheme("pink");
     }
 }
