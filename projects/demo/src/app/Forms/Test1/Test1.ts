@@ -25,14 +25,14 @@ export class Test1 extends Form
   	@INIT
 	public init() : void
 	{
-		this.setMenu(new CustomMenu());
+		this.Menu = new CustomMenu();
 		this.setCallback(this.callback);
-		this.getParameters().forEach((value,key) => {console.log(key+"="+value)});
+		this.Parameters.forEach((value,key) => {console.log(key+"="+value)});
 	}
 
 	public callback(form:Form, cancelled:boolean) : void
 	{
-		console.log("callback received, cancelled: "+cancelled);
-		this.clearStack();
+		//console.log("callback received, cancelled: "+cancelled);
+		//this.clearCallStack();
 	}
 }

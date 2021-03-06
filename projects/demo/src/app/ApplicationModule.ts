@@ -28,7 +28,7 @@ import { Test3 } from './Forms/Test3/Test3';
 
 @FORM(Test1,"Demo Form Test1","/forms/test1")
 @FORM(Test2,"Demo Form Test2","/forms/test2")
-@FORM(Test3,"Demo Form Test3","/modal/test3",true,{modal: true})
+@FORM(Test3,"Demo Form Test3","/modal/test3")
 
 export class ApplicationModule
 {
@@ -36,8 +36,7 @@ export class ApplicationModule
 
     constructor(app:Application)
     {
-        app.title = "Demo";
-        app.setMenu(null);
-        app.preferences.setTheme("pink");
+        app.Title = "Demo";
+        app.preferences.setTheme("yellow");
     }
 }

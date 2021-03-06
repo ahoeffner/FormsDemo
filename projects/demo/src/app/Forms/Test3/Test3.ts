@@ -1,5 +1,5 @@
-import { Form } from 'forms42';
 import { Component } from '@angular/core';
+import { Form, WIZARD, WINDOW } from 'forms42';
 
 
 @Component({
@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
     styleUrls: []
 })
 
+@WIZARD()
+@WINDOW(true,200,200,400,400)
 
 export class Test3 extends Form
 {

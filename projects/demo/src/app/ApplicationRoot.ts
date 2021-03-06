@@ -19,7 +19,7 @@ export class ApplicationRoot
 
     public get title() : string
     {
-        return(this.app.title);
+        return(this.app.AppOrFormTitle);
     }
 
     public close() : void
