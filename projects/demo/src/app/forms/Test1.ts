@@ -1,7 +1,7 @@
-import { Block1 } from './/Block1';
+import { Block1 } from '../blocks/Block1';
 import { Component } from '@angular/core';
-import { Form, BLOCK, INIT } from 'forms42';
-import { CustomMenu } from '../../Menus/CustomMenu';
+import { CustomMenu } from '../menus/CustomMenu';
+import { Form, INIT, SHOW } from 'forms42';
 
 
 @Component({
@@ -11,11 +11,9 @@ import { CustomMenu } from '../../Menus/CustomMenu';
 })
 
 
-@BLOCK("emp",Block1)
-
 export class Test1 extends Form
 {
-  	public n:number = 1;
+	public n:number = 1;
 
 	public add()
 	{
@@ -28,6 +26,13 @@ export class Test1 extends Form
 		this.Menu = new CustomMenu();
 		this.setCallback(this.callback);
 		this.Parameters.forEach((value,key) => {console.log(key+"="+value)});
+	}
+
+
+	@SHOW
+	public show() : void
+	{
+		this.Title = "Test1 context title";
 	}
 
 	public callback(form:Form, cancelled:boolean) : void

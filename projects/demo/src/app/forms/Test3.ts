@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Form, WIZARD, WINDOW } from 'forms42';
+import { Form, WIZARD, WINDOW, DATABASE } from 'forms42';
 
 
 @Component({
@@ -10,6 +10,7 @@ import { Form, WIZARD, WINDOW } from 'forms42';
 
 @WIZARD()
 @WINDOW(true,200,200,400,400)
+@DATABASE({query:true})
 
 export class Test3 extends Form
 {

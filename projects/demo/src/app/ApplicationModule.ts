@@ -6,9 +6,9 @@ import { Application, FormsLibrary, FORM } from 'forms42';
 
 // Formsdefinitions
 
-import { Test1 } from './Forms/Test1/Test1';
-import { Test2 } from './Forms/Test2/Test2';
-import { Test3 } from './Forms/Test3/Test3';
+import { Test1 } from './forms/Test1';
+import { Test2 } from './forms/Test2';
+import { Test3 } from './forms/Test3';
 
 
 @NgModule({
@@ -37,6 +37,6 @@ export class ApplicationModule
     constructor(app:Application)
     {
         app.Title = "Demo";
-        app.preferences.setTheme("yellow");
+        //app.preferences.setTheme("yellow");
     }
 }

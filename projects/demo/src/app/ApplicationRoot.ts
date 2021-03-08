@@ -12,14 +12,17 @@ import { Component } from '@angular/core';
 export class ApplicationRoot
 {
     public sidenav:boolean = true;
-    public barcolor:string = this.app.preferences.colors.topbar;
-    public btncolor:string = this.app.preferences.colors.buttontext;
 
     constructor(private app:Application) {}
 
-    public get title() : string
+    public get barcolor() : string
     {
-        return(this.app.AppOrFormTitle);
+        return(this.app.preferences.colors.topbar);
+    }
+
+    public get btncolor() : string
+    {
+        return(this.app.preferences.colors.buttontext);
     }
 
     public close() : void
