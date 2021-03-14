@@ -1,7 +1,7 @@
-import { Block1 } from '../blocks/Block1';
 import { Component } from '@angular/core';
-import { CustomMenu } from '../menus/CustomMenu';
 import { Form, INIT, SHOW } from 'forms42';
+import { Employees } from '../blocks/Employees';
+import { CustomMenu } from '../menus/CustomMenu';
 
 
 @Component({
@@ -13,13 +13,6 @@ import { Form, INIT, SHOW } from 'forms42';
 
 export class Test1 extends Form
 {
-	public n:number = 1;
-
-	public add()
-	{
-		this.n++;
-	}
-
   	@INIT
 	public init() : void
 	{
@@ -32,7 +25,6 @@ export class Test1 extends Form
 	@SHOW
 	public show() : void
 	{
-		this.Title = "Test1 context title";
 	}
 
 	public callback(form:Form, cancelled:boolean) : void

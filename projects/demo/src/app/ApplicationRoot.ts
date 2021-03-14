@@ -17,12 +17,12 @@ export class ApplicationRoot
 
     public get barcolor() : string
     {
-        return(this.app.preferences.colors.topbar);
+        return(this.app.colors.topbar);
     }
 
     public get btncolor() : string
     {
-        return(this.app.preferences.colors.buttontext);
+        return(this.app.colors.menuoption);
     }
 
     public close() : void

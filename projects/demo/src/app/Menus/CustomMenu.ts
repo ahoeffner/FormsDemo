@@ -58,11 +58,9 @@ class Handler extends MenuHandler
 
     public  onConnect(): void
     {
-        console.log("CustomMenu onConnect");
     }
 
     public onDisconnect(): void
     {
-        console.log("CustomMenu onDisconnect");
     }
 }
