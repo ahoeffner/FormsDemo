@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+
+button
+{
+    width: 100px;
+    border: none;
+    padding: 20px;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    background-color: #4CAF50; /* Green */
+}
+
+input
+{
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #000000;
+}
+
+focus
+{
+    border: none;
+    outline: 0 !important;
+    background: transparent;
+    border-bottom: 2px solid #000000;
+}
+
+
+input.invalid
+{
+    border: 2px;
+    border-color:red;
+    border-style: solid;
+}
