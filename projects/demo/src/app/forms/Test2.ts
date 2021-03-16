@@ -11,7 +11,6 @@ import { Departments } from '../blocks/Departments';
 })
 
 @BLOCK("emp",Employees)
-@BLOCK("dept",Departments)
 
 export class Test2 extends Form
 {

@@ -5,3 +5,60 @@
     <button (click)="callform('test3')">Call Test3</button>
     <button (click)="close()">Close</button>
 </div>
+
+<table>
+    <tr>
+        <td>
+            <table>
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                </tr>
+                <tr *ngFor="let item of [].constructor(2); let row = index">
+                    <td>
+                        <field name="id" row="{{row}}" group="overview" block="emp"></field>
+                    </td>
+                    <td>
+                        <field name="name" row="{{row}}" group="overview" block="emp"></field>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td>
+            <table>
+                <tr>
+                    <td>
+                        Id
+                    </td>
+                    <td>
+                        <field name="id" block="emp"></field>
+                    </td>
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                        <field name="name" block="emp"></field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Firstname
+                    </td>
+                    <td>
+                        <field name="firstname" block="emp"></field>
+                    </td>
+                    <td>
+                        Lastname
+                    </td>
+                    <td>
+                        <field name="lastname" block="emp"></field>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<field name="address" group="overview" block="emp"></field>
+
