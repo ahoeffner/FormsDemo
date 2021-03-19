@@ -28,7 +28,7 @@ import { Test3 } from './forms/Test3';
 
 @FORM(Test1,"Demo Form Test1","/forms/test1")
 @FORM(Test2,"Demo Form Test2","/forms/test2")
-@FORM(Test3,"Demo Form Test3","/wizards/test3")
+@FORM(Test3,"Demo Form Test3","/master data/test3")
 
 export class ApplicationModule
 {

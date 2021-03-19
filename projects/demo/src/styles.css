@@ -14,9 +14,15 @@
     background-color: grey;
 }
 
+div
+{
+    font-size: 14px;
+}
+
 input, input:disabled
 {
     border: none;
+    font-size: 14px;
     background: transparent;
     border-bottom: 1px solid #000000;
 }
@@ -24,6 +30,7 @@ input, input:disabled
 input:focus
 {
     border: none;
+    font-size: 14px;
     outline: 0 !important;
     background: transparent;
     border-bottom: 2px solid #000000;
@@ -33,6 +40,7 @@ input:focus
 input.invalid
 {
     border: 2px;
+    font-size: 14px;
     border-color:red;
     border-style: solid;
 }

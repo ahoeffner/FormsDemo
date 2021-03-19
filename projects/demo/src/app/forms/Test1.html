@@ -1,64 +1,53 @@
 <div>
-    Test1
     <button (click)="showform('test2')">Show Test2</button>
     <button (click)="callform('test2')">Call Test2</button>
     <button (click)="callform('test3')">Call Test3</button>
     <button (click)="close()">Close</button>
 </div>
 
-<table>
+<table style="margin-top: 20px;">
     <tr>
+        <td>&nbsp;Id</td>
+        <td>&nbsp;Job</td>
+    </tr>
+    <tr><td></td></tr>
+    <tr *ngFor="let item of [].constructor(4); let row = index">
         <td>
-            <table>
-                <tr>
-                    <td>Id</td>
-                    <td>Name</td>
-                </tr>
-                <tr *ngFor="let item of [].constructor(2); let row = index">
-                    <td>
-                        <field name="id" row="{{row}}" group="overview" block="emp"></field>
-                    </td>
-                    <td>
-                        <field name="name" row="{{row}}" group="overview" block="emp"></field>
-                    </td>
-                </tr>
-            </table>
+            <field name="id" row="{{row}}" group="overview" block="emp"></field>
         </td>
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
         <td>
-            <table>
-                <tr>
-                    <td>
-                        Id
-                    </td>
-                    <td>
-                        <field name="id" block="emp"></field>
-                    </td>
-                    <td>
-                        Name
-                    </td>
-                    <td>
-                        <field name="name" block="emp"></field>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Firstname
-                    </td>
-                    <td>
-                        <field name="firstname" block="emp"></field>
-                    </td>
-                    <td>
-                        Lastname
-                    </td>
-                    <td>
-                        <field name="lastname" block="emp"></field>
-                    </td>
-                </tr>
-            </table>
+            <field name="job" row="{{row}}" group="overview" block="emp"></field>
         </td>
     </tr>
 </table>
 
-<field name="address" group="overview" block="emp"></field>
-
+<table style="margin-top: 40px;">
+    <tr>
+        <td>
+            Id
+        </td>
+        <td>
+            <field name="id" block="emp"></field>
+        </td>
+        <td>
+            Job
+        </td>
+        <td>
+            <field name="job" block="emp"></field>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Firstname
+        </td>
+        <td>
+            <field name="firstname" block="emp"></field>
+        </td>
+        <td>
+            Lastname
+        </td>
+        <td>
+            <field name="lastname" block="emp"></field>
+        </td>
+    </tr>
+</table>
