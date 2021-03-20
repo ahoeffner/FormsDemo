@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Form, INIT, SHOW, BLOCK } from 'forms42';
-import { Employees } from '../blocks/Employees';
+import { Countries } from '../blocks/Countries';
 import { CustomMenu } from '../menus/CustomMenu';
+import { Form, init, show, block } from 'forms42';
 
 
 @Component({
@@ -10,11 +10,11 @@ import { CustomMenu } from '../menus/CustomMenu';
     styleUrls: []
 })
 
-@BLOCK("emp",Employees)
+@block({component: Countries})
 
 export class Test1 extends Form
 {
-  	@INIT
+  	@init
 	public init() : void
 	{
 		this.Menu = new CustomMenu();
@@ -23,10 +23,11 @@ export class Test1 extends Form
 	}
 
 
-	@SHOW
+	@show
 	public show() : void
 	{
 	}
+
 
 	public callback(form:Form, cancelled:boolean) : void
 	{

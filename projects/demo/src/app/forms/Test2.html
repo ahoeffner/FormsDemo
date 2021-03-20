@@ -1,15 +1,15 @@
 <table style="margin-top: 20px;">
     <tr>
-        <td>&nbsp;Id</td>
-        <td>&nbsp;Job</td>
+        <td>&nbsp;Code</td>
+        <td>&nbsp;Country</td>
     </tr>
     <tr><td></td></tr>
     <tr *ngFor="let item of [].constructor(4); let row = index">
         <td>
-            <field name="id" row="{{row}}" group="overview" block="emp"></field>
+            <field name="code" row="{{row}}" group="overview" block="country"></field>
         </td>
         <td>
-            <field name="job" row="{{row}}" group="overview" block="emp"></field>
+            <field name="country" row="{{row}}" group="overview" block="country"></field>
         </td>
     </tr>
 </table>
@@ -17,30 +17,16 @@
 <table style="margin-top: 40px;">
     <tr>
         <td>
-            Id
+            Code
         </td>
         <td>
-            <field name="id" block="emp"></field>
+            <field name="code" block="country"></field>
         </td>
         <td>
-            Job
+            Country
         </td>
         <td>
-            <field name="job" block="emp"></field>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Firstname
-        </td>
-        <td>
-            <field name="firstname" block="emp"></field>
-        </td>
-        <td>
-            Lastname
-        </td>
-        <td>
-            <field name="lastname" block="emp"></field>
+            <field name="country" block="country"></field>
         </td>
     </tr>
 </table>

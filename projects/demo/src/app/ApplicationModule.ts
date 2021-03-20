@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { ApplicationRoot } from './ApplicationRoot';
 import { MaterialModules } from './MaterialModules';
 import { BrowserModule } from '@angular/platform-browser';
-import { Application, FormsLibrary, FORM } from 'forms42';
+import { Application, FormsLibrary, form } from 'forms42';
 
 // Formsdefinitions
 
@@ -26,9 +26,9 @@ import { Test3 } from './forms/Test3';
 })
 
 
-@FORM(Test1,"Demo Form Test1","/forms/test1")
-@FORM(Test2,"Demo Form Test2","/forms/test2")
-@FORM(Test3,"Demo Form Test3","/master data/test3")
+@form(Test1,"Demo Form Test1","/forms/test1")
+@form(Test2,"Demo Form Test2","/forms/test2")
+@form(Test3,"Demo Form Test3","/master data/test3")
 
 export class ApplicationModule
 {
@@ -37,6 +37,5 @@ export class ApplicationModule
     constructor(app:Application)
     {
         app.Title = "Demo";
-        //app.preferences.setTheme("yellow");
     }
 }

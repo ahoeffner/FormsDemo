@@ -1,7 +1,6 @@
-import { BLOCK, DATABASE, Form } from 'forms42';
+import { block, Form } from 'forms42';
 import { Component } from '@angular/core';
-import { Employees } from '../blocks/Employees';
-import { Departments } from '../blocks/Departments';
+import { Countries } from '../blocks/Countries';
 
 
 @Component({
@@ -10,7 +9,7 @@ import { Departments } from '../blocks/Departments';
 	styleUrls: []
 })
 
-@BLOCK("emp",Employees)
+@block({component: Countries})
 
 export class Test2 extends Form
 {
