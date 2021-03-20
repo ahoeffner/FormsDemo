@@ -1,11 +1,15 @@
-import { database, alias, field, Block } from "forms42";
+import { database, alias, field, Block, table, column } from "forms42";
 
 @alias("country")
-@database({query:true, insert:true, update: true, delete: true})
+@table("countries")
 
-@field({name: "code"    , type: "input"})
-@field({name: "country" , type: "input"})
+@column("code","varchar")
+@column("country","varchar")
 
+@field({name: "code"    , type: "input", column: true, mandatory: true, case: "upper"})
+@field({name: "country" , type: "input", column: "country", mandatory: true})
+
+@database({query:false})
 export class Countries extends Block
 {
 }
