@@ -1,4 +1,4 @@
-import { Menu, Form, MenuEntry, MenuHandler, Transaction } from 'forms42';
+import { Menu, Form, MenuEntry, MenuHandler } from 'forms42';
 
 
 export class CustomMenu implements Menu
@@ -30,12 +30,6 @@ export class CustomMenu implements Menu
 
 class Handler extends MenuHandler
 {
-    public onTransactio(action: Transaction): void
-    {
-        throw new Error('Method not implemented.');
-    }
-
-
     public onInit(): void
     {
     }
@@ -44,6 +38,10 @@ class Handler extends MenuHandler
     {
         if (form != null) this.enable();
         else              this.disable();
+    }
+
+    public onTransactionChange(): void
+    {
     }
 
     public test2() : void

@@ -30,12 +30,13 @@ import { Test3 } from './forms/Test3';
 @form(Test2,"Demo Form Test2","/forms/test2")
 @form(Test3,"Demo Form Test3","/master data/test3")
 
+
 export class ApplicationModule
 {
     public func() {}
 
     constructor(app:Application)
     {
-        app.Title = "Demo";
+        app.title = "Demo";
     }
 }

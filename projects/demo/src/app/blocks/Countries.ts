@@ -1,15 +1,35 @@
-import { database, alias, field, Block, table, column } from "forms42";
+import { database, alias, field, Block, table, column, key } from "forms42";
 
 @alias("country")
-@table("countries")
+@table("countries","code")
 
-@column("code","varchar")
-@column("country","varchar")
+@column("country_id","varchar")
+@column("country_name","varchar")
 
-@field({name: "code"    , type: "input", column: true, mandatory: true, case: "upper"})
-@field({name: "country" , type: "input", column: "country", mandatory: true})
+@key("primary",true,"country_id")
 
-@database({query:false})
+@field({name: "code"    , type: "input", column: "country_id", mandatory: true, case: "upper"})
+@field({name: "country" , type: "input", column: "country_name", mandatory: true})
+
+@database({query:true})
 export class Countries extends Block
 {
+    constructor()
+    {
+        super();
+        this.addListener(this.trgtest1,"focus");
+        this.addListener(this.trgtest2,"focus");
+    }
+
+    async trgtest1(field:string, row:number, type:string, value:any, key?:string) : Promise<boolean>
+    {
+        console.log("1 triggered");
+        return(true);
+    }
+
+    trgtest2(field:string, row:number, type:string, value:any, key?:string) : Promise<boolean>
+    {
+        console.log("2 triggered");
+        return(new Promise<boolean>((data) => {return(true)}));
+    }
 }
