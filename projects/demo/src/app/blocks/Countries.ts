@@ -1,4 +1,4 @@
-import { database, alias, field, Block, table, column, key } from "forms42";
+import { database, alias, field, Block, table, column, key, KeyTriggerEvent } from "forms42";
 
 @alias("country")
 @table("countries","code")
@@ -21,13 +21,13 @@ export class Countries extends Block
         //this.addListener(this.trgtest2,"focus");
     }
 
-    async trgtest1(field:string, row:number, type:string, value:any, key?:string) : Promise<boolean>
+    async trgtest1(event:KeyTriggerEvent) : Promise<boolean>
     {
-        console.log("1 triggered on field: "+field+" row: "+row);
+        console.log("1 triggered on field: "+event.field+" row: "+event.row);
         return(true);
     }
 
-    trgtest2(field:string, row:number, type:string, value:any, key?:string) : Promise<boolean>
+    trgtest2(event:KeyTriggerEvent) : Promise<boolean>
     {
         return(new Promise<boolean>((data) => {return(true)}));
     }
