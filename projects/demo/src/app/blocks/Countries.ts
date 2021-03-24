@@ -18,18 +18,17 @@ export class Countries extends Block
     {
         super();
         this.addListener(this.trgtest1,"focus");
-        this.addListener(this.trgtest2,"focus");
+        //this.addListener(this.trgtest2,"focus");
     }
 
     async trgtest1(field:string, row:number, type:string, value:any, key?:string) : Promise<boolean>
     {
-        console.log("1 triggered");
+        console.log("1 triggered on field: "+field+" row: "+row);
         return(true);
     }
 
     trgtest2(field:string, row:number, type:string, value:any, key?:string) : Promise<boolean>
     {
-        console.log("2 triggered");
         return(new Promise<boolean>((data) => {return(true)}));
     }
 }
