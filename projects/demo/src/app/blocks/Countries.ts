@@ -17,17 +17,16 @@ export class Countries extends Block
     constructor()
     {
         super();
-        this.addListener(this.trgtest1,"focus");
+        //this.addListener(this.trgtest1,"focus");
         //this.addListener(this.trgtest2,"focus");
     }
 
-    async trgtest1(event:KeyTriggerEvent) : Promise<boolean>
+    public async trigger1(event:KeyTriggerEvent) : Promise<boolean>
     {
-        console.log("1 triggered on field: "+event.field+" row: "+event.row);
         return(true);
     }
 
-    trgtest2(event:KeyTriggerEvent) : Promise<boolean>
+    public trigger2(event:KeyTriggerEvent) : Promise<boolean>
     {
         return(new Promise<boolean>((data) => {return(true)}));
     }
