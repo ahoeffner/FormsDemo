@@ -1,7 +1,7 @@
 import { database, alias, field, Block, table, column, key, KeyTriggerEvent } from "forms42";
 
 @alias("country")
-@table("countries","code")
+@table("countries","country_id")
 
 @column("country_id","varchar")
 @column("country_name","varchar")
