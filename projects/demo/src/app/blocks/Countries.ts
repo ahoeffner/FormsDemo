@@ -1,7 +1,8 @@
-import { database, alias, field, Block, table, column, key, KeyTriggerEvent } from "forms42";
+import { database, alias, field, Block, table, column, key, KeyTriggerEvent, orderby } from "forms42";
 
 @alias("country")
-@table("countries","country_id")
+@table("countries")
+@orderby("country_id")
 
 @column("country_id","varchar")
 @column("country_name","varchar")
@@ -10,6 +11,8 @@ import { database, alias, field, Block, table, column, key, KeyTriggerEvent } fr
 
 @field({name: "code"    , type: "input", column: "country_id", mandatory: true, case: "upper"})
 @field({name: "country" , type: "input", column: "country_name", mandatory: true})
+
+@field({name: "name" , type: "input"})
 
 @database({query:true})
 export class Countries extends Block
