@@ -1,4 +1,4 @@
-import { database, alias, field, Block, table, column, key, KeyTriggerEvent, orderby } from "forms42";
+import { database, alias, field, Block, table, column, key, orderby, FieldTriggerEvent, Trigger } from "forms42";
 
 @alias("country")
 @table("countries")
@@ -20,17 +20,13 @@ export class Countries extends Block
     constructor()
     {
         super();
-        //this.addListener(this.trgtest1,"focus");
-        //this.addListener(this.trgtest2,"focus");
+        this.addFieldListener(this.setName,Trigger.PostChange,["code","country"]);
     }
 
-    public async trigger1(event:KeyTriggerEvent) : Promise<boolean>
+
+    public async setName(event:FieldTriggerEvent) : Promise<boolean>
     {
+        console.log("PostChange "+event.field);
         return(true);
-    }
-
-    public trigger2(event:KeyTriggerEvent) : Promise<boolean>
-    {
-        return(new Promise<boolean>((data) => {return(true)}));
     }
 }
