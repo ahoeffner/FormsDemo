@@ -1,4 +1,5 @@
-import { database, alias, field, Block, table, column, key, orderby, FieldTriggerEvent, Trigger } from "forms42";
+import { database, alias, field, Block, table, column, key, orderby, FieldTriggerEvent, FieldTrigger } from "forms42";
+
 
 @alias("country")
 @table("countries")
@@ -14,19 +15,20 @@ import { database, alias, field, Block, table, column, key, orderby, FieldTrigge
 
 @field({name: "name" , type: "input"})
 
+
 @database({query:true})
 export class Countries extends Block
 {
     constructor()
     {
         super();
-        this.addFieldListener(this.setName,Trigger.PostChange,["code","country"]);
+        this.addFieldListener(this.setName,FieldTrigger.PostChange,["code","country"]);
     }
 
 
     public async setName(event:FieldTriggerEvent) : Promise<boolean>
     {
-        console.log("PostChange "+event.field);
+        console.log("PostChange "+event.field+" value: "+event.previous+" -> "+event.value);
         return(true);
     }
 }
