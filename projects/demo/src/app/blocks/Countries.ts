@@ -1,4 +1,4 @@
-import { database, alias, field, Block, table, column, key, orderby, FieldTriggerEvent, FieldTrigger } from "forms42";
+import { database, alias, field, Block, table, column, key, orderby, FieldType, FieldTriggerEvent, FieldTrigger, Case } from "forms42";
 
 
 @alias("country")
@@ -10,10 +10,10 @@ import { database, alias, field, Block, table, column, key, orderby, FieldTrigge
 
 @key("primary",true,"country_id")
 
-@field({name: "code"    , type: "input", column: "country_id", mandatory: true, case: "upper"})
-@field({name: "country" , type: "input", column: "country_name", mandatory: true})
+@field({name: "code"    , column: "country_id", mandatory: true, case: Case.upper})
+@field({name: "country" , column: "country_name", mandatory: true})
 
-@field({name: "name" , type: "input"})
+//@field({name: "name" , type: FieldType.input})
 
 
 @database({query:true})
@@ -28,7 +28,13 @@ export class Countries extends Block
 
     public async setName(event:FieldTriggerEvent) : Promise<boolean>
     {
-        console.log("PostChange "+event.field+" value: "+event.previous+" -> "+event.value);
+        let code:string = this.getValue("code",event.row);
+        let country:string = this.getValue("country",event.row);
+
+        if (code == null) code = "";
+        if (country == null) country = "";
+
+        this.setValue("name",event.row,country+" ("+code+")");
         return(true);
     }
 }
