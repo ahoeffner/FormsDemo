@@ -13,8 +13,6 @@ import { database, alias, field, Block, table, column, key, orderby, FieldType, 
 @field({name: "code"    , column: "country_id", mandatory: true, case: Case.upper})
 @field({name: "country" , column: "country_name", mandatory: true})
 
-//@field({name: "name" , type: FieldType.input})
-
 
 @database({query:true})
 export class Countries extends Block

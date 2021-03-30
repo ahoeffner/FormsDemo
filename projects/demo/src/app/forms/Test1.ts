@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Countries } from '../blocks/Countries';
 import { CustomMenu } from '../menus/CustomMenu';
-import { Form, init, show, block } from 'forms42';
+import { Form, init, show, block, field, FieldType } from 'forms42';
 
 
 @Component({
@@ -10,16 +10,17 @@ import { Form, init, show, block } from 'forms42';
     styleUrls: []
 })
 
-@block({component: Countries})
+//@block({component: Countries})
 
 export class Test1 extends Form
 {
   	@init
 	public init() : void
 	{
-		this.Menu = new CustomMenu();
+		//this.Menu = new CustomMenu();
 		this.setCallback(this.callback);
 		this.Parameters.forEach((value,key) => {console.log(key+"="+value)});
+		this.getBlock("Country").restrict = {query: true, insert: true, update: true, delete: true};
 	}
 
 
