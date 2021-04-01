@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Countries } from '../blocks/Countries';
 import { CustomMenu } from '../menus/CustomMenu';
-import { Form, init, show, block, field, FieldType } from 'forms42';
+import { Form, init, show, block, field, FieldType, Trigger } from 'forms42';
+import { FieldTriggerEvent, SQLTriggerEvent, TriggerEvent } from 'forms42/lib/events/TriggerEvent';
 
 
 @Component({
@@ -21,6 +22,9 @@ export class Test1 extends Form
 		this.setCallback(this.callback);
 		this.Parameters.forEach((value,key) => {console.log(key+"="+value)});
 		this.getBlock("Country").restrict = {query: true, insert: true, update: true, delete: true};
+
+		//this.addTrigger(this.trigger,Trigger.PreQuery);
+		//this.addTrigger(this.trigger,Trigger.Lock);
 	}
 
 
@@ -34,5 +38,11 @@ export class Test1 extends Form
 	{
 		//console.log("callback received, cancelled: "+cancelled);
 		//this.clearCallStack();
+	}
+
+
+	private async trigger(event:FieldTriggerEvent) : Promise<boolean>
+	{
+		return(false);
 	}
 }

@@ -1,4 +1,4 @@
-import { block, Form,  field, FieldType } from 'forms42';
+import { block, Form,  field, FieldType, FieldTriggerEvent, Trigger } from 'forms42';
 import { Component } from '@angular/core';
 import { Countries } from '../blocks/Countries';
 
@@ -14,4 +14,16 @@ import { Countries } from '../blocks/Countries';
 
 export class Test2 extends Form
 {
+    constructor()
+    {
+        super();
+		//this.addTrigger(this.trigger,Trigger.Lock);
+    }
+
+
+	private async trigger(event:FieldTriggerEvent) : Promise<boolean>
+	{
+		console.log(event.field+" "+event.value);
+		return(false);
+	}
 }

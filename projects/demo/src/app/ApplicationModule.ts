@@ -9,12 +9,13 @@ import { Application, FormsLibrary, form } from 'forms42';
 import { Test1 } from './forms/Test1';
 import { Test2 } from './forms/Test2';
 import { Test3 } from './forms/Test3';
+import { Locations } from './forms/Locations';
 
 
 @NgModule({
   declarations: [
     ApplicationRoot,
-    Test1, Test2, Test3
+    Test1, Test2, Test3, Locations
   ],
   imports: [
     BrowserModule,
@@ -28,6 +29,7 @@ import { Test3 } from './forms/Test3';
 
 @form(Test1,"Demo Form Test1","/forms/test1")
 @form(Test2,"Demo Form Test2","/forms/test2")
+@form(Locations,"Locations","/master data/locations")
 @form(Test3,"Demo Form Test3","/master data/test3")
 
 
