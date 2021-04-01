@@ -5,8 +5,8 @@ import { database, alias, field, Block, table, column, key, orderby, FieldType, 
 @table("countries")
 @orderby("country_id")
 
-@column("country_id","varchar")
-@column("country_name","varchar")
+@column({name: "country_id"  , type: "varchar"})
+@column({name: "country_name", type: "varchar"})
 
 @key("primary",true,"country_id")
 
