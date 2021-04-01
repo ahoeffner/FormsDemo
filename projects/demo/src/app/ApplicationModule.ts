@@ -7,7 +7,7 @@ import { Application, FormsLibrary, form } from 'forms42';
 // Formsdefinitions
 
 import { Test1 } from './forms/Test1';
-import { Test2 } from './forms/Test2';
+import { Countries } from './forms/Countries';
 import { Test3 } from './forms/Test3';
 import { Locations } from './forms/Locations';
 
@@ -15,7 +15,7 @@ import { Locations } from './forms/Locations';
 @NgModule({
   declarations: [
     ApplicationRoot,
-    Test1, Test2, Test3, Locations
+    Test1, Countries, Test3, Locations
   ],
   imports: [
     BrowserModule,
@@ -28,7 +28,7 @@ import { Locations } from './forms/Locations';
 
 
 @form(Test1,"Demo Form Test1","/forms/test1")
-@form(Test2,"Demo Form Test2","/forms/test2")
+@form(Countries,"Demo Form Test2","/master data/countries")
 @form(Locations,"Locations","/master data/locations")
 @form(Test3,"Demo Form Test3","/master data/test3")
 

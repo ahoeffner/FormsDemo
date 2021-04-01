@@ -1,9 +1,28 @@
-<div style="border: 1px solid black; width: 50vw;">
-    <div><field name="location_id" block="loc"></field></div>
-    <div><field name="street_address" block="loc"></field></div>
-    <div><field name="postal_code" block="loc"></field></div>
-    <div><field name="city" block="loc"></field></div>
-    <div><field name="state_province" block="loc"></field></div>
-    <div><field name="country_id" block="loc"></field></div>
-    <div><field name="country_name" block="loc"></field></div>
+<div class="locations">
+    <div class="section" style="float: left;">
+        <div class="header">
+            <span>Id</span>
+            <span>City</span>
+            <span>Country</span>
+        </div>
+        <div class="table">
+            <div class="row" *ngFor="let item of [].constructor(8); let row = index">
+                <field row="{{row}}" name="location_id"      size="4"   block="loc"></field>
+                <field row="{{row}}" name="city"             size="20"  block="loc"></field>
+                <field row="{{row}}" name="country_name"     size="20"  block="loc"></field>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" style="float: right;">
+        <div class="detail">
+            <div><span class="label">Id             </span> : <field name="location_id"      size="4"   block="loc"></field></div>
+            <div><span class="label">Address        </span> : <field name="street_address"   size="20"  block="loc"></field></div>
+            <div><span class="label">Postal Code    </span> : <field name="postal_code"      size="6"   block="loc"></field></div>
+            <div><span class="label">City           </span> : <field name="city"             size="20"  block="loc"></field></div>
+            <div><span class="label">State          </span> : <field name="state_province"   size="20"  block="loc"></field></div>
+            <div><span class="label">Country Code   </span> : <field name="country_id"       size="4"   block="loc"></field></div>
+            <div><span class="label">Country Name   </span> : <field name="country_name"     size="20"  block="loc"></field></div>
+        </div>
+    </div>
 </div>

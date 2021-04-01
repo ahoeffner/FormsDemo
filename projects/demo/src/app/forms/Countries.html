@@ -1,0 +1,21 @@
+<span class="title">Countries</span>
+
+<div class="table">
+    <div class="heading">
+        <span class="code-header">Code</span>
+        <span class="spacer"></span>
+        <span class="country-header">Country</span>
+    </div>
+
+    <div class="row" *ngFor="let item of [].constructor(20); let row = index">
+        <span class="code">
+            <field size="4" name="code" row="{{row}}" block="country"></field>
+        </span>
+
+        <span class="spacer"></span>
+
+        <span class="country">
+            <field size="20" name="country" row="{{row}}" block="country"></field>
+        </span>
+    </div>
+</div>

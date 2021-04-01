@@ -3,9 +3,8 @@ import { Component } from '@angular/core';
 import { Locations as location } from '../blocks/Locations';
 
 @Component({
-    selector: '',
     templateUrl: 'Locations.html',
-    styleUrls: []
+    styleUrls: [ './Locations.css' ]
 })
 
 @block({component: location, alias: "loc"})

@@ -1,8 +1,8 @@
 .toggle
 {
-    top: 0;
     bottom: 0;
     z-index: 1;
+    top: 0.25em;
     height: 1.75em;
     position: absolute;
 }
@@ -17,9 +17,9 @@
 
 .close
 {
-    top: 0;
     right: 0;
     z-index: 1;
+    top: 0.25em;
     width: 1.75em;
     height: 1.75em;
     position: absolute;

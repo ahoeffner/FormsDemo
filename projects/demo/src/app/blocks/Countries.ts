@@ -20,7 +20,7 @@ export class Countries extends Block
     constructor()
     {
         super();
-        this.addFieldListener(this.setName,FieldTrigger.PostChange,["code","country"]);
+        this.addFieldTrigger(this.setName,FieldTrigger.PostChange,["code","country"]);
     }
 
 

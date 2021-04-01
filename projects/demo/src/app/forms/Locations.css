@@ -1,0 +1,42 @@
+.locations
+{
+    display: flex;
+    margin-top: 8px;
+    border: 2px solid black;
+}
+
+.section
+{
+    padding-top: 8px;
+    display: inline-block;
+}
+
+.table
+{
+    width: 400px;
+    padding-bottom: 8px;
+    border: 1px solid green;
+}
+
+.detail
+{
+    width: 350px;
+    padding-top: 16px;
+    padding-left: 32px;
+    padding-bottom: 8px;
+    border: 1px solid red;
+}
+
+.label
+{
+    width: 120px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: 4px;
+    display: inline-block;
+}
+
+field
+{
+    margin-left: 8px;
+}

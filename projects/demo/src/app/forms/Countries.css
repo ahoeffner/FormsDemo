@@ -1,0 +1,63 @@
+.title
+{
+    width: 300px;
+    display: block;
+    margin-top: 32px;
+    font-weight: bold;
+    font-size: larger;
+    text-align: center;
+}
+
+.table
+{
+    width: 300px;
+    display: block;
+    margin-top: 8px;
+    padding-bottom: 16px;
+    border: 2px solid black;
+}
+
+.heading
+{
+    width: 100%;
+    display: flex;
+    margin-bottom: 8px;
+    padding-bottom: 2px;
+    justify-content: center;
+    border-bottom: 2px solid black;
+}
+
+.code-header
+{
+    width: 32px;
+    padding-left: 0 px;
+}
+
+.country-header
+{
+    width: 150px;
+    padding-left: 10px;
+}
+
+.row
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.code
+{
+    width: 32px;
+}
+
+.country
+{
+    width: 160px;
+}
+
+.spacer
+{
+    width: 16px;
+    display: flex;
+}
