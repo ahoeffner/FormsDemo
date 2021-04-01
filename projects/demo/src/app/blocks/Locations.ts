@@ -3,16 +3,16 @@ import { Block, column, field, FieldTriggerEvent, orderby, table, Trigger, State
 @table("locations")
 @orderby("country_id, city")
 
-@column({name: "location_id"    , type: "smallint"  , mandatory: true})
+@column({name: "location_id"    , type: "number"    , mandatory: true})
 @column({name: "street_address" , type: "varchar"   , mandatory: true})
 @column({name: "postal_code"    , type: "varchar"   , mandatory: true})
 @column({name: "city"           , type: "varchar"   , mandatory: true})
 @column({name: "state_province" , type: "varchar"   , mandatory: true})
 @column({name: "country_id"     , type: "varchar"   , mandatory: true})
 
-@field({name: "country_name"})
 @field({name: "country_id", case: Case.upper})
 @field({name: "location_id", fieldoptions: {insert: false}})
+@field({name: "country_name", fieldoptions: {insert: false, update: false, query: false}})
 
 
 export class Locations extends Block

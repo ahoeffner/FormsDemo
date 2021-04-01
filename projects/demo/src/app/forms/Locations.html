@@ -1,12 +1,14 @@
+<span class="title">Locations</span>
+
 <div class="locations">
     <div class="section" style="float: left;">
-        <div class="header">
-            <span>Id</span>
-            <span>City</span>
-            <span>Country</span>
+        <div class="heading">
+            <span class="header" style="width:  40px">Id</span>
+            <span class="header" style="width: 152px">City</span>
+            <span class="header" style="width: 160px">Country</span>
         </div>
         <div class="table">
-            <div class="row" *ngFor="let item of [].constructor(8); let row = index">
+            <div class="row" *ngFor="let item of [].constructor(16); let row = index">
                 <field row="{{row}}" name="location_id"      size="4"   block="loc"></field>
                 <field row="{{row}}" name="city"             size="20"  block="loc"></field>
                 <field row="{{row}}" name="country_name"     size="20"  block="loc"></field>

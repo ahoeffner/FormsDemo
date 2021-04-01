@@ -1,6 +1,5 @@
 .title
 {
-    width: 300px;
     display: block;
     margin-top: 32px;
     font-weight: bold;
@@ -8,9 +7,22 @@
     text-align: center;
 }
 
+.countries
+{
+    width: 600px;
+    height: 500px;
+    display: flex;
+    margin-top: 8px;
+    padding-top: 32px;
+    padding-bottom: 16px;
+    justify-content: center;
+    border: 2px solid black;
+}
+
 .table
 {
     width: 300px;
+    height: 425px;
     display: block;
     margin-top: 8px;
     padding-bottom: 16px;
