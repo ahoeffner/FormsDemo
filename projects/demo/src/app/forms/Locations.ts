@@ -8,7 +8,7 @@ import { Locations as location } from '../blocks/Locations';
     styleUrls: []
 })
 
-@block({component: location})
+@block({component: location, alias: "loc"})
 
 export class Locations extends Form
 {
