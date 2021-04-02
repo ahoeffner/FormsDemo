@@ -9,29 +9,17 @@
 
 .locations
 {
-    width: 900px;
     height: 400px;
     display: flex;
     margin-top: 8px;
     padding-top: 32px;
+    padding-left: 32px;
+    padding-right: 32px;
     padding-bottom: 16px;
     justify-content: center;
     border: 2px solid black;
 }
 
-.heading
-{
-    display: flex;
-    border-top: 2px solid black;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-}
-
-.header
-{
-    display: flex;
-    margin-left: 16px;
-}
 
 .section
 {
@@ -39,11 +27,27 @@
     display: inline-block;
 }
 
-.table
+
+table
 {
-    padding-top: 4px;
-    padding-bottom: 8px;
     border: 2px solid black;
+    border-collapse: collapse;
+}
+
+.left
+{
+    display: inline-block;
+}
+
+th
+{
+    font-weight: normal;
+    border-bottom: 2px solid black;
+}
+
+tr
+{
+    height: 16px;
 }
 
 .detail
@@ -65,5 +69,6 @@
 
 field
 {
-    margin-left: 8px;
+    margin-left: 16px;
+    margin-right: 16px;
 }
