@@ -9,7 +9,7 @@ import { Block, column, field, FieldTriggerEvent, table, Trigger, Statement, Cas
 @column({name: "state_province" , type: "varchar"   , mandatory: true})
 @column({name: "country_id"     , type: "varchar"   , mandatory: true, case: Case.upper})
 
-@field({name: "location_id", fieldoptions: {insert: false}})
+@field({name: "location_id", fieldoptions: {insert: false, update: false}})
 @field({name: "country_name", fieldoptions: {insert: false, update: false, query: false}})
 
 
