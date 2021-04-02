@@ -22,7 +22,9 @@
 .heading
 {
     display: flex;
-    border: 2px solid black;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
 }
 
 .header
@@ -40,6 +42,7 @@
 .table
 {
     width: 400px;
+    padding-top: 4px;
     padding-bottom: 8px;
     border: 2px solid black;
 }
