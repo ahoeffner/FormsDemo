@@ -10,13 +10,13 @@
 
         <div class="row" *ngFor="let item of [].constructor(20); let row = index">
             <span class="code">
-                <field size="4" name="code" row="{{row}}" block="country"></field>
+                <field size="4" name="country_id" row="{{row}}" block="country"></field>
             </span>
 
             <span class="spacer"></span>
 
             <span class="country">
-                <field size="20" name="country" row="{{row}}" block="country"></field>
+                <field size="20" name="country_name" row="{{row}}" block="country"></field>
             </span>
         </div>
     </div>
