@@ -7,13 +7,13 @@
             <th><span>Country</span><span class="left" style="width: 55%;"></span></th>
         </tr>
 
-        <tr><td colspan="2"></td></tr>
+        <tr class="spacer"><td colspan="2"></td></tr>
 
         <tr *ngFor="let item of [].constructor(20); let row = index">
             <td><field size="4" name="country_id" row="{{row}}" block="country"></field></td>
             <td><field size="20" name="country_name" row="{{row}}" block="country"></field></td>
         </tr>
 
-        <tr><td colspan="2"></td></tr>
+        <tr class="spacer"><td colspan="2"></td></tr>
     </table>
 </div>

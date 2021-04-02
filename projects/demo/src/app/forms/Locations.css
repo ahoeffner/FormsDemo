@@ -39,6 +39,11 @@ table
     display: inline-block;
 }
 
+.spacer
+{
+    height: 8px;
+}
+
 th
 {
     font-weight: normal;
