@@ -11,5 +11,4 @@ import { Locations as location } from '../blocks/Locations';
 
 export class Locations extends Form
 {
-
 }
