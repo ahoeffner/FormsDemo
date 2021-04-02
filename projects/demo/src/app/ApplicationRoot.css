@@ -22,7 +22,7 @@
     top: 0.25em;
     width: 1.75em;
     height: 1.75em;
-    position: absolute;
+    position: fixed;
     border-left: 1px solid black;
 }
 
