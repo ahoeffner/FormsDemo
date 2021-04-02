@@ -3,21 +3,16 @@
 <div class="countries">
     <div class="table">
         <div class="heading">
-            <span class="code-header">Code</span>
-            <span class="spacer"></span>
-            <span class="country-header">Country</span>
+            <div class="header">
+                <span class="head" style="width:  40px">Code</span>
+                <span class="head" style="width:  40px"></span>
+                <span class="head" style="width: 160px">Country</span>
+            </div>
         </div>
 
         <div class="row" *ngFor="let item of [].constructor(20); let row = index">
-            <span class="code">
-                <field size="4" name="country_id" row="{{row}}" block="country"></field>
-            </span>
-
-            <span class="spacer"></span>
-
-            <span class="country">
-                <field size="20" name="country_name" row="{{row}}" block="country"></field>
-            </span>
+            <field size="4" name="country_id" row="{{row}}" block="country"></field>
+            <field size="20" name="country_name" row="{{row}}" block="country"></field>
         </div>
     </div>
 </div>

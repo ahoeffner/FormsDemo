@@ -39,16 +39,17 @@
     border-bottom: 2px solid black;
 }
 
-.code-header
+.header
 {
-    width: 32px;
-    padding-left: 0 px;
+    width: 65%;
+    display: flex;
+    justify-content: center;
 }
 
-.country-header
+.head
 {
-    width: 155px;
-    padding-left: 5px;
+    display: flex;
+    text-align: left;
 }
 
 .row
@@ -56,22 +57,6 @@
     width: 100%;
     display: flex;
     justify-content: center;
-}
-
-.code
-{
-    width: 32px;
-}
-
-.country
-{
-    width: 160px;
-}
-
-.spacer
-{
-    width: 16px;
-    display: flex;
 }
 
 field
