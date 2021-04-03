@@ -21,7 +21,7 @@ export class Test1 extends Form
 		//this.Menu = new CustomMenu();
 		this.setCallback(this.callback);
 		this.Parameters.forEach((value,key) => {console.log(key+"="+value)});
-		this.getBlock("Country").restrict = {query: true, insert: true, update: true, delete: true};
+		this.getBlock("Country").usage = {query: true, insert: true, update: true, delete: true};
 
 		//this.addTrigger(this.trigger,Trigger.PreQuery);
 		//this.addTrigger(this.trigger,Trigger.Lock);
