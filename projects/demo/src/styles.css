@@ -26,7 +26,17 @@ input, input:disabled, input[disabled="disabled"]
     font-size: 14px;
     font-weight: normal;
     background: transparent;
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px dotted black;
+}
+
+input.mandatory
+{
+    border: none;
+    color: black;
+    font-size: 14px;
+    font-weight: normal;
+    background: transparent;
+    border-bottom: 1px solid black;
 }
 
 input:focus
@@ -35,9 +45,8 @@ input:focus
     font-size: 14px;
     outline: 0 !important;
     background: transparent;
-    border-bottom: 2px solid #000000;
+    border-bottom: 2px solid black;
 }
-
 
 input.invalid
 {

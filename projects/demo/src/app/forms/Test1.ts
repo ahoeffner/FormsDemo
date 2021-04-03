@@ -12,6 +12,7 @@ import { FieldTriggerEvent, SQLTriggerEvent, TriggerEvent } from 'forms42/lib/ev
 })
 
 //@block({component: Countries})
+@field({name: "country.code", type: FieldType.integer})
 
 export class Test1 extends Form
 {
