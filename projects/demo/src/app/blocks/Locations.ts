@@ -12,7 +12,7 @@ import { Block, column, key, field, FieldTriggerEvent, table, Trigger, Statement
 @field({name: "location_id", fieldoptions: {insert: false, update: false}})
 @field({name: "country_name", fieldoptions: {insert: false, update: false, query: false}})
 
-//@key("primary",true,"location_id")
+@key("primary",true,"location_id")
 
 export class Locations extends Block
 {
