@@ -1,31 +1,26 @@
-  <div class="toggle">
-    <mat-icon class="toggle-button" [ngStyle]="{'color': btncolor}" (click)="sidenav=!sidenav">menu</mat-icon>
-  </div>
+<table class="root-window">
+  <tr class="topbar" [ngStyle]="{'background-color': barcolor}">
+    <td>
+      <button class="toggle-button" [ngStyle]="{'color': btncolor, 'background-color': barcolor}" (click)="sidenav=!sidenav">
+        <div class="line"></div><div class="line"></div><div class="line"></div>
+      </button>
+    </td>
 
-  <div class="close">
-    <button class="close-button" (click)="close();" [ngStyle]="{'color': btncolor}">X</button>
-  </div>
+    <td [style.width]="sidenav ? '250px' : '0'"></td>
 
-  <table class="frame">
-    <tr class="topbar" [ngStyle]="{'background-color': barcolor}">
-      <td></td>
-      <td>
-        <div class="menu">
-            <menuarea></menuarea>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td valign="top" [style.width]="sidenav ? '200px' : '0'" style="display: inline-block;">
-        <div class="formlist" [style.display]="sidenav ? 'inline-block' : 'none'">
-          <formlist root="demo"></formlist>
-        </div>
-      </td>
+    <td>
+        <menuarea class="menu"></menuarea>
+    </td>
+    <td style="width: 16px; border-left: 1px solid black;">
+      <button class="close-button" [ngStyle]="{'color': btncolor, 'background-color': barcolor}" (click)="close();">X</button>
+    </td>
+  </tr>
+</table>
 
-      <td class="form" valign="top">
-        <div class="formarea">
-            <formarea></formarea>
-        </div>
-      </td>
-    </tr>
-  </table>
+<span class="formlist" [style.width]="sidenav ? '250px' : '0'">
+  <formlist root="demo" [style.display]="sidenav ? 'flex' : 'none'"></formlist>
+</span>
+
+<span class="form" [style.width]="sidenav ? '80%' : '100%'" [style.left]="sidenav ? '250px' : '0'">
+  <formarea></formarea>
+</span>
