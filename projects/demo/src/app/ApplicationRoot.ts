@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
 
 export class ApplicationRoot
 {
-    public sidenav:boolean = true;
+    public sidenav:boolean = false;
 
     constructor(private app:Application) {}
 

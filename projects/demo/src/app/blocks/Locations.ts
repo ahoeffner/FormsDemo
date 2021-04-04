@@ -24,7 +24,7 @@ export class Locations extends Block
 
     public async setCountry(trigger:FieldTriggerEvent) : Promise<boolean>
     {
-        this.setValue("country_name",trigger.row,
+        this.setValue(trigger.row,"country_name",
         await this.execute(
             new Statement("select country_name from countries").
             where("country_id",trigger.value),true,true));

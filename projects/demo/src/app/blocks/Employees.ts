@@ -27,8 +27,9 @@ export class Employees extends Block
     constructor()
     {
         super();
-        this.addFieldTrigger(this.setName,Trigger.PostChange,["first_name","last_name"]);
+
         this.addFieldTrigger(this.setDepartment,Trigger.PostChange,"department_id");
+        this.addFieldTrigger(this.setName,Trigger.PostChange,["first_name","last_name"]);
     }
 
     public async setName(trigger:FieldTriggerEvent) : Promise<boolean>
@@ -36,21 +37,29 @@ export class Employees extends Block
         let lname:string = this.getValue("last_name",trigger.row);
         let fname:string = this.getValue("first_name",trigger.row);
 
-        this.setValue("name",trigger.row,fname+" "+lname);
+        this.setValue(trigger.row,"name",fname+" "+lname);
         return(true);
     }
 
     public async setDepartment(trigger:FieldTriggerEvent) : Promise<boolean>
     {
-        let stmt:Statement = new Statement("select department_name from departments");
+        let stmt:Statement = new Statement("select department_name as name, manager_id as mgr from departments");
 
         stmt.where("department_id",trigger.value);
         let row:any = await this.execute(stmt,true);
 
         if (row != null)
         {
-            this.setValue("department",trigger.row,"");
-            stmt = new Statement("");
+            let mgr:number = row["mgr"];
+            let dept:string = row["name"];
+
+            this.setValue(trigger.row,"department",dept);
+
+            stmt = new Statement("select first_name||' '||last_name from employees");
+            stmt.where("employee_id",mgr);
+
+            let manager:string = await this.execute(stmt,true,true);
+            this.setValue(trigger.row,"manager",manager);
         }
 
         return(true);
