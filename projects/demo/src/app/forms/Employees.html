@@ -1,0 +1,35 @@
+<span class="title">Employess</span>
+
+<div class="employees">
+    <div class="section" style="float: left;">
+        <table>
+            <tr>
+                <th><span>Employee</span><span class="left"></span></th>
+                <th><span>Department</span><span class="left" style="width: 70%;"></span></th>
+                <th><span>Manager</span><span class="left" style="width: 60%;"></span></th>
+            </tr>
+
+            <tr class="spacer"><td colspan="3"></td></tr>
+
+            <tr *ngFor="let item of [].constructor(15); let row = index">
+                <td><field row="{{row}}" name="name"        size="20"  block="emp" id="table"></field></td>
+                <td><field row="{{row}}" name="department"  size="15"  block="emp" id="table"></field></td>
+                <td><field row="{{row}}" name="manager"     size="20"  block="emp" id="table"></field></td>
+            </tr>
+
+            <tr class="spacer"><td colspan="3"></td></tr>
+        </table>
+    </div>
+
+    <div class="section" style="float: right;">
+        <div class="detail">
+            <div><span class="label">ID             </span> : <field name="employee_id"      size="4"   block="emp"></field></div>
+            <div><span class="label">Last name    </span> : <field name="last_name"      size="15"  block="emp"></field></div>
+            <div><span class="label">First name      </span> : <field name="First_name"   size="20"  block="emp"></field></div>
+            <div><span class="label">Email           </span> : <field name="Email"             size="20"  block="emp"></field></div>
+            <div><span class="label">Phone#         </span> : <field name="phone_number"   size="20"  block="emp"></field></div>
+            <div><span class="label">Hiredate       </span> : <field name="hire_date"       size="4"   block="emp"></field></div>
+            <div><span class="label">Job            </span> : <field name="country_name"     size="20"  block="emp"></field></div>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-import { Block, column, field, FieldTriggerEvent, table, Trigger, Statement, Case } from "forms42";
+import { Block, column, key, field, FieldTriggerEvent, table, Trigger, Statement, Case } from "forms42";
 
 @table({name: "locations", order: "country_id, city"})
 
@@ -12,6 +12,7 @@ import { Block, column, field, FieldTriggerEvent, table, Trigger, Statement, Cas
 @field({name: "location_id", fieldoptions: {insert: false, update: false}})
 @field({name: "country_name", fieldoptions: {insert: false, update: false, query: false}})
 
+//@key("primary",true,"location_id")
 
 export class Locations extends Block
 {
