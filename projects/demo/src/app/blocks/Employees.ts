@@ -1,7 +1,7 @@
-import { alias, Block, table, column, key, field, FieldTriggerEvent, Trigger } from "forms42";
+import { alias, Block, table, column, key, field, FieldTriggerEvent, Trigger, Statement } from "forms42";
 
 @alias("emp")
-@table({name: "employees", order: "first_name, last_name"})
+@table({name: "employees", order: "department_id, first_name, last_name"})
 
 @column({name: "employee_id"        , type: "integer"    , mandatory: true })
 @column({name: "first_name"         , type: "varchar"    , mandatory: true })
@@ -28,6 +28,7 @@ export class Employees extends Block
     {
         super();
         this.addFieldTrigger(this.setName,Trigger.PostChange,["first_name","last_name"]);
+        this.addFieldTrigger(this.setDepartment,Trigger.PostChange,"department_id");
     }
 
     public async setName(trigger:FieldTriggerEvent) : Promise<boolean>
@@ -36,6 +37,22 @@ export class Employees extends Block
         let fname:string = this.getValue("first_name",trigger.row);
 
         this.setValue("name",trigger.row,fname+" "+lname);
+        return(true);
+    }
+
+    public async setDepartment(trigger:FieldTriggerEvent) : Promise<boolean>
+    {
+        let stmt:Statement = new Statement("select department_name from departments");
+
+        stmt.where("department_id",trigger.value);
+        let row:any = await this.execute(stmt,true);
+
+        if (row != null)
+        {
+            this.setValue("department",trigger.row,"");
+            stmt = new Statement("");
+        }
+
         return(true);
     }
 }

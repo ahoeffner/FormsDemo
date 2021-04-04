@@ -19,10 +19,10 @@ export class Locations extends Block
     constructor()
     {
         super();
-        this.addFieldTrigger(this.getCountry,Trigger.PostChange,"country_id")
+        this.addFieldTrigger(this.setCountry,Trigger.PostChange,"country_id")
     }
 
-    public async getCountry(trigger:FieldTriggerEvent) : Promise<boolean>
+    public async setCountry(trigger:FieldTriggerEvent) : Promise<boolean>
     {
         this.setValue("country_name",trigger.row,
         await this.execute(
