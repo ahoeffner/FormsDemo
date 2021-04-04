@@ -1,4 +1,4 @@
-import { Application } from 'forms42';
+import { Application, Form } from 'forms42';
 import { Component } from '@angular/core';
 
 
@@ -14,6 +14,16 @@ export class ApplicationRoot
     public sidenav:boolean = true;
 
     constructor(private app:Application) {}
+
+    public get form() : Form
+    {
+        return(this.app.form);
+    }
+
+    public get popup() : boolean
+    {
+        return(this.app.form?.popup);
+    }
 
     public get barcolor() : string
     {

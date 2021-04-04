@@ -68,6 +68,7 @@
 {
     top: 2em;
     display: flex;
+    min-width: 800px;
     position: absolute;
     justify-content: center;
 }
