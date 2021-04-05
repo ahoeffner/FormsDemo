@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Countries } from '../blocks/Countries';
 import { CustomMenu } from '../menus/CustomMenu';
-import { Form, init, show, Block, field, FieldType, Trigger } from 'forms42';
+import { Form, init, show, Block, field, FieldType, Trigger, database } from 'forms42';
 import { FieldTriggerEvent, SQLTriggerEvent, TriggerEvent } from 'forms42/lib/events/TriggerEvent';
 
 
@@ -11,6 +11,7 @@ import { FieldTriggerEvent, SQLTriggerEvent, TriggerEvent } from 'forms42/lib/ev
     styleUrls: []
 })
 
+@database({insert: true, delete: true})
 
 export class Test1 extends Form
 {
@@ -22,7 +23,6 @@ export class Test1 extends Form
 		//this.Parameters.forEach((value,key) => {console.log(key+"="+value)});
 
 		let country:Block = this.getBlock("country");
-		country.usage = {query: false, insert: false, update: true, delete: true};
 
 		let record:number = await country.createControlRecord();
 		country.setValue(record,"code",1);

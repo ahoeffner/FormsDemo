@@ -72,6 +72,15 @@ tr
     display: inline-block;
 }
 
+.indicator
+{
+    width: 10px;
+    height: 10px;
+    margin-left: 2px;
+    margin-right: 0;
+    display: inline-block;
+}
+
 field
 {
     margin-left: 16px;

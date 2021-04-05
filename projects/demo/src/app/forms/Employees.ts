@@ -12,4 +12,9 @@ import { Employees as Employee } from '../blocks/Employees';
 
 export class Employees extends Form
 {
+    public current(row:number) : string
+    {
+        if (row == this.getCurrentRow("emp")) return(this.colors.topbar);
+        else return("");
+    }
 }

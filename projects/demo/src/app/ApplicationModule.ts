@@ -39,10 +39,9 @@ import { Employees } from './forms/Employees';
 
 export class ApplicationModule
 {
-    public func() {}
-
     constructor(app:Application)
     {
         app.title = "Demo";
+        app.theme = "pink";
     }
 }

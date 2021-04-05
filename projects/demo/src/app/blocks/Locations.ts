@@ -4,7 +4,7 @@ import { Block, column, key, field, FieldTriggerEvent, table, Trigger, Statement
 
 @column({name: "location_id"    , type: "number"    , mandatory: true})
 @column({name: "street_address" , type: "varchar"   , mandatory: true})
-@column({name: "postal_code"    , type: "varchar"   , mandatory: true})
+@column({name: "postal_code"    , type: "varchar"   , mandatory: false})
 @column({name: "city"           , type: "varchar"   , mandatory: true})
 @column({name: "state_province" , type: "varchar"   , mandatory: false})
 @column({name: "country_id"     , type: "varchar"   , mandatory: true, case: Case.upper})

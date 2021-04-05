@@ -4,6 +4,7 @@
     <div class="section" style="float: left;">
         <table>
             <tr>
+                <th></th>
                 <th><span>ID</span><span class="left"></span></th>
                 <th><span>City</span><span class="left" style="width: 70%;"></span></th>
                 <th><span>Country</span><span class="left" style="width: 60%;"></span></th>
@@ -12,12 +13,13 @@
             <tr class="spacer"><td colspan="3"></td></tr>
 
             <tr *ngFor="let item of [].constructor(15); let row = index">
+                <td class="indicator" [style.background-color]="current(row)"></td>
                 <td><field row="{{row}}" name="location_id"      size="4"   block="loc" id="table"></field></td>
                 <td><field row="{{row}}" name="city"             size="20"  block="loc" id="table"></field></td>
                 <td><field row="{{row}}" name="country_name"     size="20"  block="loc" id="table"></field></td>
             </tr>
 
-            <tr class="spacer"><td colspan="3"></td></tr>
+            <tr class="spacer"><td colspan="4"></td></tr>
         </table>
     </div>
 
