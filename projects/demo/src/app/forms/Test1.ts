@@ -11,17 +11,22 @@ import { FieldTriggerEvent, SQLTriggerEvent, TriggerEvent } from 'forms42/lib/ev
     styleUrls: []
 })
 
-//@block({component: Countries})
-@field({name: "country.code", type: FieldType.integer})
 
 export class Test1 extends Form
 {
   	@init
-	public init() : void
+	public async init()
 	{
 		//this.Menu = new CustomMenu();
-		this.setCallback(this.callback);
-		this.Parameters.forEach((value,key) => {console.log(key+"="+value)});
+		//this.setCallback(this.callback);
+		//this.Parameters.forEach((value,key) => {console.log(key+"="+value)});
+
+		let country:Block = this.getBlock("country");
+		country.usage = {query: false, insert: false, update: true, delete: true};
+
+		let record:number = await country.createControlRecord();
+		country.setValue(record,"code",1);
+		country.setValue(record,"country","denmark");
 
 		//let country:Block = this.getBlock("country");
 		//country.usage = {query: true, insert: true, update: true, delete: true};
@@ -33,10 +38,6 @@ export class Test1 extends Form
 	@show
 	public async show()
 	{
-		let country:Block = this.getBlock("country");
-		let record:number = await country.insert();
-		country.setValue(record,"code",1);
-		country.setValue(record,"country","denmark");
 	}
 
 
