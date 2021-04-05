@@ -34,10 +34,10 @@ export class Employees extends Block
 
     public async setName(trigger:FieldTriggerEvent) : Promise<boolean>
     {
-        let lname:string = this.getValue("last_name",trigger.row);
-        let fname:string = this.getValue("first_name",trigger.row);
+        let lname:string = this.getValue(trigger.record,"last_name");
+        let fname:string = this.getValue(trigger.record,"first_name");
 
-        this.setValue(trigger.row,"name",fname+" "+lname);
+        this.setValue(trigger.record,"name",fname+" "+lname);
         return(true);
     }
 
@@ -53,13 +53,13 @@ export class Employees extends Block
             let mgr:number = row["mgr"];
             let dept:string = row["name"];
 
-            this.setValue(trigger.row,"department",dept);
+            this.setValue(trigger.record,"department",dept);
 
             stmt = new Statement("select first_name||' '||last_name from employees");
             stmt.where("employee_id",mgr);
 
             let manager:string = await this.execute(stmt,true,true);
-            this.setValue(trigger.row,"manager",manager);
+            this.setValue(trigger.record,"manager",manager);
         }
 
         return(true);
