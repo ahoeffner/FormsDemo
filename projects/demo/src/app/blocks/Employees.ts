@@ -1,19 +1,19 @@
-import { alias, Block, table, column, key, field, FieldTriggerEvent, Trigger, Statement } from "forms42";
+import { alias, Block, table, column, key, field, FieldTriggerEvent, Trigger, Statement, Column } from "forms42";
 
 @alias("emp")
 @table({name: "employees", order: "department_id, first_name, last_name"})
 
-@column({name: "employee_id"        , type: "integer"    , mandatory: true })
-@column({name: "first_name"         , type: "varchar"    , mandatory: true })
-@column({name: "last_name"          , type: "varchar"    , mandatory: true })
-@column({name: "email"              , type: "varchar"    , mandatory: true })
-@column({name: "phone_number"       , type: "varchar"    , mandatory: false})
-@column({name: "hire_date"          , type: "date"       , mandatory: true })
-@column({name: "job_id"             , type: "varchar"    , mandatory: true })
-@column({name: "salary"             , type: "numeric"    , mandatory: false})
-@column({name: "commission_pct"     , type: "numeric"    , mandatory: false})
-@column({name: "manager_id"         , type: "integer"    , mandatory: false})
-@column({name: "department_id"      , type: "smallint"   , mandatory: false})
+@column({name: "employee_id"        , type: Column.integer    , mandatory: true })
+@column({name: "first_name"         , type: Column.varchar    , mandatory: true })
+@column({name: "last_name"          , type: Column.varchar    , mandatory: true })
+@column({name: "email"              , type: Column.varchar    , mandatory: true })
+@column({name: "phone_number"       , type: Column.varchar    , mandatory: false})
+@column({name: "hire_date"          , type: Column.date       , mandatory: true })
+@column({name: "job_id"             , type: Column.varchar    , mandatory: true })
+@column({name: "salary"             , type: Column.decimal    , mandatory: false})
+@column({name: "commission_pct"     , type: Column.decimal    , mandatory: false})
+@column({name: "manager_id"         , type: Column.integer    , mandatory: false})
+@column({name: "department_id"      , type: Column.integer    , mandatory: false})
 
 @key("primary",true,"employee_id")
 

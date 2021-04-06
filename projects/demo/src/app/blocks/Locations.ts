@@ -1,13 +1,13 @@
-import { Block, column, key, field, FieldTriggerEvent, table, Trigger, Statement, Case } from "forms42";
+import { Block, column, key, field, FieldTriggerEvent, table, Trigger, Statement, Case, Column } from "forms42";
 
 @table({name: "locations", order: "country_id, city"})
 
-@column({name: "location_id"    , type: "number"    , mandatory: true})
-@column({name: "street_address" , type: "varchar"   , mandatory: true})
-@column({name: "postal_code"    , type: "varchar"   , mandatory: false})
-@column({name: "city"           , type: "varchar"   , mandatory: true})
-@column({name: "state_province" , type: "varchar"   , mandatory: false})
-@column({name: "country_id"     , type: "varchar"   , mandatory: true, case: Case.upper})
+@column({name: "location_id"    , type: Column.integer   , mandatory: true})
+@column({name: "street_address" , type: Column.varchar   , mandatory: true})
+@column({name: "postal_code"    , type: Column.varchar   , mandatory: false})
+@column({name: "city"           , type: Column.varchar   , mandatory: true})
+@column({name: "state_province" , type: Column.varchar   , mandatory: false})
+@column({name: "country_id"     , type: Column.varchar   , mandatory: true, case: Case.upper})
 
 @field({name: "location_id", fieldoptions: {insert: false, update: false}})
 @field({name: "country_name", fieldoptions: {insert: false, update: false, query: false}})
