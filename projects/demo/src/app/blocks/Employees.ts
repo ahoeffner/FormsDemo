@@ -64,4 +64,10 @@ export class Employees extends Block
 
         return(true);
     }
+
+
+    public changeDepartment(record:number, deptid:number) : void
+    {
+        this.setValue(record,"department_id",deptid);
+    }
 }
