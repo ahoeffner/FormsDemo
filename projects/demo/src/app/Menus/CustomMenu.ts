@@ -35,12 +35,6 @@ class Handler extends MenuHandler
         this.enable();
     }
 
-    public onFormChange(form: Form): void
-    {
-        if (form != null) this.enable();
-        else              this.disable();
-    }
-
     public onTransactionChange(): void
     {
     }
