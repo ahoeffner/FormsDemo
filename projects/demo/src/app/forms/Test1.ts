@@ -15,10 +15,17 @@ import { FieldTriggerEvent, SQLTriggerEvent, TriggerEvent } from 'forms42/lib/ev
 
 export class Test1 extends Form
 {
+	constructor()
+	{
+		super();
+		this.menu = new CustomMenu();
+	}
+
   	@init
 	public async init()
 	{
-		//this.Menu = new CustomMenu();
+		//this.menu = null;
+		//this.menu = new CustomMenu();
 		//this.setCallback(this.callback);
 		//this.Parameters.forEach((value,key) => {console.log(key+"="+value)});
 

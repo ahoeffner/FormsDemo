@@ -32,6 +32,7 @@ class Handler extends MenuHandler
 {
     public onInit(): void
     {
+        this.enable();
     }
 
     public onFormChange(form: Form): void

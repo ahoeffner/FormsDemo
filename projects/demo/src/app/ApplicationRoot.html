@@ -1,12 +1,13 @@
 <table class="root-window">
   <tr class="topbar" [ngStyle]="{'background-color': barcolor}">
-    <td>
+    <td class="toggle-button-area">
       <button class="toggle-button" [ngStyle]="{'color': btncolor, 'background-color': barcolor}" (click)="sidenav=!sidenav">
         <div class="line"></div><div class="line"></div><div class="line"></div>
       </button>
     </td>
 
-    <td [style.width]="sidenav && (form && !popup) ? '200px' : '0'"></td>
+    <!-- Filler for formlist -->
+    <td [style.width]="sidenav && (form && !popup) ? '250px' : '0'"></td>
 
     <td>
         <menuarea class="menu"></menuarea>
