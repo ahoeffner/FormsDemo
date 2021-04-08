@@ -9,7 +9,7 @@ import { Form, wizard, window, database } from 'forms42';
 })
 
 @wizard()
-@window(true,200,200,400,400)
+@window(true,400,300)
 @database({query:true})
 
 export class Test3 extends Form

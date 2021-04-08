@@ -1,4 +1,5 @@
 import { alias, Block, table, column, key, field, FieldTriggerEvent, Trigger, Statement, Column } from "forms42";
+import { ListOfValues } from "forms42/lib/listval/ListOfValues";
 
 @alias("emp")
 @table({name: "employees", order: "department_id, first_name, last_name"})
@@ -32,6 +33,7 @@ export class Employees extends Block
         this.addFieldTrigger(this.setName,Trigger.PostChange,["first_name","last_name"]);
     }
 
+
     public async setName(trigger:FieldTriggerEvent) : Promise<boolean>
     {
         let lname:string = this.getValue(trigger.record,"last_name");
@@ -40,6 +42,7 @@ export class Employees extends Block
         this.setValue(trigger.record,"name",fname+" "+lname);
         return(true);
     }
+
 
     public async setDepartment(trigger:FieldTriggerEvent) : Promise<boolean>
     {
@@ -66,8 +69,14 @@ export class Employees extends Block
     }
 
 
-    public changeDepartment(record:number, deptid:number) : void
+    public changeDepartment() : void
     {
-        this.setValue(record,"department_id",deptid);
+        let lov:ListOfValues =
+        {
+            title: "Test",
+            sql: "select department_id, department_name as display from departments",
+            fieldmap: new Map<string,string>()
+        }
+        this.showListOfValues(lov);
     }
 }

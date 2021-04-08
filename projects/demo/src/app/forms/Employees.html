@@ -13,7 +13,7 @@
             <tr class="spacer"><td colspan="4"></td></tr>
 
             <tr *ngFor="let item of [].constructor(15); let row = index">
-                <td class="indicator" [style.background-color]="current(row)"></td>
+                <td class="indicator" [style.background-color]="getRowIndicator('emp',row)"></td>
                 <td><field row="{{row}}" name="name"        size="20"  block="emp" id="table"></field></td>
                 <td><field row="{{row}}" name="department"  size="15"  block="emp" id="table"></field></td>
                 <td><field row="{{row}}" name="manager"     size="20"  block="emp" id="table"></field></td>
@@ -34,7 +34,7 @@
             <div><span class="label">Job         </span> : <field name="job_id"         size="10"  block="emp"></field></div>
             <div><span class="label">Salary      </span> : <field name="salary"         size="9"   block="emp"></field></div>
             <div><span class="label">Commission  </span> : <field name="commission_pct" size="6"   block="emp"></field></div>
-            <div><button (click)="setDepartment()">Test</button></div>
+            <div><button (click)="emp.changeDepartment()">Test</button></div>
         </div>
     </div>
 </div>

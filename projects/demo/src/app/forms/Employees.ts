@@ -11,17 +11,5 @@ import { Employees as Employee } from '../blocks/Employees';
 
 export class Employees extends Form
 {
-    @block({component: Employee}) private emp:Employee;
-
-    public current(row:number) : string
-    {
-        if (row == this.getCurrentRow("emp")) return(this.colors.topbar);
-        else return("");
-    }
-
-
-    public setDepartment() : void
-    {
-        this.emp.changeDepartment(0,90);
-    }
+    @block({component: Employee}) public emp:Employee;
 }
