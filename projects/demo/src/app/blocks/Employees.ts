@@ -46,22 +46,24 @@ export class Employees extends Block
 
     public async setDepartment(trigger:FieldTriggerEvent) : Promise<boolean>
     {
-        let stmt:Statement = new Statement("select department_name as name, manager_id as mgr from departments");
+        let stmt:Statement = new Statement(
 
-        stmt.where("department_id",trigger.value);
+            `select department_name as dept, first_name||' '||last_name as manager
+             from departments dept, employees emp
+             where emp.department_id = dept.department_id
+             and dept.department_id = :deptid`
+
+        )
+        .bind("deptid",trigger.value);
+
         let row:any = await this.execute(stmt,true);
 
         if (row != null)
         {
-            let mgr:number = row["mgr"];
-            let dept:string = row["name"];
+            let dept:string = row["dept"];
+            let manager:string = row["manager"];
 
             this.setValue(trigger.record,"department",dept);
-
-            stmt = new Statement("select first_name||' '||last_name from employees");
-            stmt.where("employee_id",mgr);
-
-            let manager:string = await this.execute(stmt,true,true);
             this.setValue(trigger.record,"manager",manager);
         }
 
