@@ -75,8 +75,11 @@ export class Employees extends Block
     {
         let lov:ListOfValues =
         {
-            title: "Test",
-            sql: "select department_id, department_name as display from departments",
+            title: "Departments",
+            sql: `  select department_id, department_name
+                    from departments
+                    where lower(department_name) like lower(:filter)
+                    order by 2`,
             fieldmap: new Map<string,string>()
         }
         this.showListOfValues(lov);
