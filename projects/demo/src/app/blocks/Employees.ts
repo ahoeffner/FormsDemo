@@ -75,6 +75,7 @@ export class Employees extends Block
     {
         let lov:ListOfValues =
         {
+            minlen: 0,
             postfix: "%",
             title: "Departments",
             sql: `  select department_id, department_name

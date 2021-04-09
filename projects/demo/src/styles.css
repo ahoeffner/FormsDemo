@@ -56,7 +56,18 @@ input.invalid
     border-style: solid;
 }
 
-.lov-search
+input.lov-search, input.lov-search.focus
+{
+    border: none;
+    color: black;
+    font-size: 14px;
+    font-weight: normal;
+    background: transparent;
+    border-bottom: 2px solid black;
+}
+
+
+input.lov-result, input.lov-result:disabled, input.lov-result[disabled="disabled"]
 {
     border: none;
     color: black;
@@ -66,16 +77,12 @@ input.invalid
 }
 
 
-.lov-result, .lov-result:disabled, .lov-result[disabled="disabled"]
+input.lov-result:focus
 {
     border: none;
     color: black;
     font-size: 14px;
     font-weight: normal;
     background: transparent;
-}
-
-.lov-spacer
-{
-    height: 8px;
+    border-bottom: 1px dotted black;
 }
