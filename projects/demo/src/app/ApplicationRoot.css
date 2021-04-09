@@ -1,8 +1,10 @@
-.root-window
+.page
 {
     top: 0;
     left: 0;
     width: 100%;
+    min-width: 1000px;
+    overflow-x: visible;
     position: absolute;
     border-collapse: collapse;
 }
@@ -73,7 +75,6 @@
 {
     top: 2em;
     display: flex;
-    min-width: 800px;
     position: absolute;
     justify-content: center;
 }
