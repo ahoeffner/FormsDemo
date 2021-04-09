@@ -1,4 +1,4 @@
-import { alias, Block, table, column, key, field, FieldTriggerEvent, Trigger, Statement, Column } from "forms42";
+import { alias, Block, table, column, key, field, FieldTriggerEvent, Trigger, Statement, Column, Case } from "forms42";
 import { ListOfValues } from "forms42/lib/listval/ListOfValues";
 
 @alias("emp")
@@ -75,11 +75,13 @@ export class Employees extends Block
     {
         let lov:ListOfValues =
         {
+            postfix: "%",
             title: "Departments",
             sql: `  select department_id, department_name
                     from departments
                     where lower(department_name) like lower(:filter)
                     order by 2`,
+            case: Case.lower,
             fieldmap: new Map<string,string>()
         }
         this.showListOfValues(lov);

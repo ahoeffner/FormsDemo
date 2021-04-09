@@ -55,3 +55,27 @@ input.invalid
     border-color:red;
     border-style: solid;
 }
+
+.lov-search
+{
+    border: none;
+    color: black;
+    font-size: 14px;
+    font-weight: normal;
+    background: transparent;
+}
+
+
+.lov-result, .lov-result:disabled, .lov-result[disabled="disabled"]
+{
+    border: none;
+    color: black;
+    font-size: 14px;
+    font-weight: normal;
+    background: transparent;
+}
+
+.lov-spacer
+{
+    height: 8px;
+}
