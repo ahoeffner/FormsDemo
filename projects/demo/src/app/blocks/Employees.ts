@@ -1,5 +1,4 @@
-import { alias, Block, table, column, key, field, FieldTriggerEvent, Trigger, Statement, Column, Case } from "forms42";
-import { ListOfValues } from "forms42/lib/listval/ListOfValues";
+import { alias, Block, table, column, key, field, FieldTriggerEvent, Trigger, Statement, Column, Case, ListOfValues, trigger, listofvalues } from "forms42";
 
 @alias("emp")
 @table({name: "employees", order: "department_id, first_name, last_name"})
@@ -33,6 +32,28 @@ export class Employees extends Block
         this.addFieldTrigger(this.setName,Trigger.PostChange,["first_name","last_name"]);
     }
 
+    @listofvalues("department_id")
+    public departments(record:number) : ListOfValues
+    {
+        let lov:ListOfValues =
+        {
+            minlen: 0,
+            postfix: "%",
+
+            title: "Departments block",
+
+            sql: `  select department_id, department_name
+                    from departments
+                    where lower(department_name) like lower(:filter)
+                    order by 2`,
+
+            case: Case.lower,
+            fieldmap: new Map<string,string>()
+        }
+
+        return(lov);
+    }
+
 
     public async setName(trigger:FieldTriggerEvent) : Promise<boolean>
     {
@@ -40,6 +61,14 @@ export class Employees extends Block
         let fname:string = this.getValue(trigger.record,"first_name");
 
         this.setValue(trigger.record,"name",fname+" "+lname);
+        return(true);
+    }
+
+
+    @trigger(Trigger.WhenValidateField,"hire_date")
+    public async validate(trigger:FieldTriggerEvent) : Promise<boolean>
+    {
+        console.log("block validate "+trigger.field);
         return(true);
     }
 
@@ -68,23 +97,5 @@ export class Employees extends Block
         }
 
         return(true);
-    }
-
-
-    public changeDepartment() : void
-    {
-        let lov:ListOfValues =
-        {
-            minlen: 0,
-            postfix: "%",
-            title: "Departments",
-            sql: `  select department_id, department_name
-                    from departments
-                    where lower(department_name) like lower(:filter)
-                    order by 2`,
-            case: Case.lower,
-            fieldmap: new Map<string,string>()
-        }
-        this.showListOfValues(lov);
     }
 }
