@@ -1,7 +1,7 @@
-<span class="title">Locations</span>
+<span class="title">{{title}}</span>
 
 <div class="locations">
-    <div class="section" style="float: left;">
+    <div class="loc-section" style="float: left;">
         <table>
             <tr>
                 <th></th>
@@ -12,7 +12,7 @@
 
             <tr class="spacer"><td colspan="4"></td></tr>
 
-            <tr *ngFor="let item of [].constructor(15); let row = index">
+            <tr *ngFor="let item of [].constructor(6); let row = index">
                 <td class="indicator" [style.background-color]="getRowIndicator('loc',row)"></td>
                 <td><field row="{{row}}" name="location_id"      size="4"   block="loc" id="table"></field></td>
                 <td><field row="{{row}}" name="city"             size="20"  block="loc" id="table"></field></td>
@@ -23,15 +23,14 @@
         </table>
     </div>
 
-    <div class="section" style="float: right;">
-        <div class="detail">
+    <div class="loc-section" style="float: right;">
+        <div class="loc-detail">
             <div><span class="label">ID             </span> : <field name="location_id"      size="4"   block="loc"></field></div>
             <div><span class="label">Address        </span> : <field name="street_address"   size="20"  block="loc"></field></div>
             <div><span class="label">Postal Code    </span> : <field name="postal_code"      size="15"  block="loc"></field></div>
             <div><span class="label">City           </span> : <field name="city"             size="20"  block="loc"></field></div>
             <div><span class="label">State          </span> : <field name="state_province"   size="20"  block="loc"></field></div>
             <div><span class="label">Country Code   </span> : <field name="country_id"       size="4"   block="loc"></field></div>
-            <div><span class="label">Country Name   </span> : <field name="country_name"     size="20"  block="loc"></field></div>
         </div>
     </div>
 </div>

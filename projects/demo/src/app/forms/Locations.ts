@@ -15,9 +15,4 @@ import { Locations as location } from '../blocks/Locations';
 
 export class Locations extends Form
 {
-    public current(row:number) : string
-    {
-        if (row == this.getCurrentRow("loc")) return(this.colors.topbar);
-        else return("");
-    }
 }

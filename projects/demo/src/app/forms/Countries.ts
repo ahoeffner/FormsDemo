@@ -12,9 +12,4 @@ import { Countries as Country } from '../blocks/Countries';
 
 export class Countries extends Form
 {
-    public current(row:number) : string
-    {
-        if (row == this.getCurrentRow("country")) return(this.colors.topbar);
-        else return("");
-    }
 }

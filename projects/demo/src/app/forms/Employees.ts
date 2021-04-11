@@ -13,7 +13,6 @@ export class Employees extends Form
 {
     @block({component: Employee}) public emp:Employee;
 
-
     @listofvalues("emp.department_id")
     public departments() : ListOfValues
     {

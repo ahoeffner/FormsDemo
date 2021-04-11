@@ -1,5 +1,6 @@
-import { Block, column, key, field, FieldTriggerEvent, table, Trigger, Statement, Case, Column } from "forms42";
+import { Block, column, key, field, FieldTriggerEvent, table, Trigger, Statement, Case, Column, trigger, alias } from "forms42";
 
+@alias("loc")
 @table({name: "locations", order: "country_id, city"})
 
 @column({name: "location_id"    , type: Column.integer   , mandatory: true})
@@ -16,18 +17,15 @@ import { Block, column, key, field, FieldTriggerEvent, table, Trigger, Statement
 
 export class Locations extends Block
 {
-    constructor()
-    {
-        super();
-        this.addFieldTrigger(this.setCountry,Trigger.PostChange,"country_id")
-    }
-
+    @trigger(Trigger.PostChange,"country_id")
     public async setCountry(trigger:FieldTriggerEvent) : Promise<boolean>
     {
         this.setValue(trigger.record,"country_name",
-        await this.execute(
+        await this.execute
+        (
             new Statement("select country_name from countries").
-            where("country_id",trigger.value),true,true));
+            where("country_id",trigger.value),true,true)
+        );
         return(true);
     }
 }

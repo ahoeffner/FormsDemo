@@ -11,7 +11,7 @@
         <tr class="spacer"><td colspan="3"></td></tr>
 
         <tr *ngFor="let item of [].constructor(16); let row = index">
-            <td class="indicator" [style.background-color]="current(row)"></td>
+            <td class="indicator" [style.background-color]="getRowIndicator('country',row)"></td>
             <td><field size="4" name="country_id" row="{{row}}" block="country"></field></td>
             <td><field size="20" name="country_name" row="{{row}}" block="country"></field></td>
         </tr>
