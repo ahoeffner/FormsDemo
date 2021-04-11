@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Employees as Employee } from '../blocks/Employees';
-import { block, Case, Form, listofvalues, ListOfValues } from 'forms42';
+import { block, Case, Form, listofvalues, ListOfValues, connect, disconnect } from 'forms42';
 
 
 @Component({
@@ -12,6 +12,7 @@ import { block, Case, Form, listofvalues, ListOfValues } from 'forms42';
 export class Employees extends Form
 {
     @block({component: Employee}) public emp:Employee;
+
 
     @listofvalues("emp.department_id")
     public departments() : ListOfValues
@@ -37,5 +38,19 @@ export class Employees extends Form
         }
 
         return(lov);
+    }
+
+
+    @connect
+    public async getSalaryLimit() : Promise<void>
+    {
+        this.emp.getSalaryLimits();
+    }
+
+
+    @disconnect
+    public async clearSalaryLimit() : Promise<void>
+    {
+        this.emp.clearSalaryLimits();
     }
 }

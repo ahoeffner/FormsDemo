@@ -1,4 +1,4 @@
-import { alias, Block, table, column, key, field, FieldTriggerEvent, Trigger, Statement, Column, Case, ListOfValues, trigger, listofvalues } from "forms42";
+import { alias, Block, table, column, key, field, FieldTriggerEvent, Trigger, Statement, Column, trigger } from "forms42";
 
 @alias("emp")
 @table({name: "employees", order: "department_id, first_name, last_name"})
@@ -26,18 +26,18 @@ import { alias, Block, table, column, key, field, FieldTriggerEvent, Trigger, St
 export class Employees extends Block
 {
     @trigger(Trigger.PostChange,["first_name","last_name"])
-    public async setName(trigger:FieldTriggerEvent) : Promise<boolean>
+    public async setName(event:FieldTriggerEvent) : Promise<boolean>
     {
-        let lname:string = this.getValue(trigger.record,"last_name");
-        let fname:string = this.getValue(trigger.record,"first_name");
+        let lname:string = this.getValue(event.record,"last_name");
+        let fname:string = this.getValue(event.record,"first_name");
 
-        this.setValue(trigger.record,"name",fname+" "+lname);
+        this.setValue(event.record,"name",fname+" "+lname);
         return(true);
     }
 
 
     @trigger(Trigger.PostChange,"department_id")
-    public async setDepartment(trigger:FieldTriggerEvent) : Promise<boolean>
+    public async setDepartment(event:FieldTriggerEvent) : Promise<boolean>
     {
         let stmt:Statement = new Statement(
 
@@ -47,7 +47,7 @@ export class Employees extends Block
              and dept.department_id = :deptid`
 
         )
-        .bind("deptid",trigger.value);
+        .bind("deptid",event.value);
 
         let row:any = await this.execute(stmt,true);
 
@@ -56,10 +56,68 @@ export class Employees extends Block
             let dept:string = row["dept"];
             let manager:string = row["manager"];
 
-            this.setValue(trigger.record,"department",dept);
-            this.setValue(trigger.record,"manager",manager);
+            this.setValue(event.record,"department",dept);
+            this.setValue(event.record,"manager",manager);
         }
 
         return(true);
+    }
+
+
+    @trigger(Trigger.WhenValidateField,"salary")
+    public async validateSalary(event:FieldTriggerEvent) : Promise<boolean>
+    {
+        if (event.value == null)
+            return(true);
+
+        await this.getSalaryLimits();
+
+        let stmt:Statement = new Statement(
+
+            `select count(manager_id)
+             from employees emp
+             where manager_id = :empid`
+
+        )
+        .bind("empid",this.getValue(event.record,"employee_id"));
+
+        let depts:number = await this.execute(stmt,true,true);
+        let limit:number = depts > 0 ? this.mgrlimit : this.emplimit;
+
+        if (+event.value < 0 || +event.value > +limit)
+        {
+            this.alert("Salary must be in range 0 - "+limit,"Validation failed");
+            return(false);
+        }
+
+        return(true);
+    }
+
+
+
+    private emplimit:number = null;
+    private mgrlimit:number = null;
+
+    public async getSalaryLimits() : Promise<number[]>
+    {
+        if (this.mgrlimit != null)
+            return([this.mgrlimit,this.emplimit]);
+
+        let stmt:Statement = new Statement
+        (":max = salaryLimit('employee')").returnvalue("max",Column.integer);
+        this.emplimit = await this.execute(stmt,true,true);
+
+        stmt = new Statement
+        (":max = salaryLimit('manager')").returnvalue("max",Column.integer);
+        this.mgrlimit = await this.execute(stmt,true,true);
+
+        return([this.mgrlimit,this.emplimit]);
+    }
+
+
+    public clearSalaryLimits() : void
+    {
+        this.mgrlimit = null;
+        this.emplimit = null;
     }
 }
