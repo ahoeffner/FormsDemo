@@ -30,7 +30,9 @@ export class Employees extends Form
                     order by 2`,
 
             case: Case.lower,
+
             fieldmap: new Map<string,string>()
+            .set("department_id","department_id")
         }
 
         return(lov);

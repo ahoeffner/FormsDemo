@@ -62,27 +62,4 @@ export class Employees extends Block
 
         return(true);
     }
-
-
-    @listofvalues("department_id")
-    public departments() : ListOfValues
-    {
-        let lov:ListOfValues =
-        {
-            minlen: 0,
-            postfix: "%",
-
-            title: "Departments block",
-
-            sql: `  select department_id, department_name
-                    from departments
-                    where lower(department_name) like lower(:filter)
-                    order by 2`,
-
-            case: Case.lower,
-            fieldmap: new Map<string,string>()
-        }
-
-        return(lov);
-    }
 }
