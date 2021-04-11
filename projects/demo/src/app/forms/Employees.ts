@@ -21,8 +21,9 @@ export class Employees extends Form
             minlen: 0,
             force: true,
             postfix: "%",
+            autoquery: true,
 
-            title: "Departments form",
+            title: "Departments",
 
             sql: `  select department_id, department_name
                     from departments
@@ -32,7 +33,7 @@ export class Employees extends Form
             case: Case.lower,
 
             fieldmap: new Map<string,string>()
-            .set("department_id1","department_id2")
+            .set("department_id","department_id")
         }
 
         return(lov);
