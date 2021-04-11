@@ -17,6 +17,7 @@ import { alias, Block, table, column, key, field, FieldTriggerEvent, Trigger, St
 
 @key("primary",true,"employee_id")
 
+
 @field({name: "name", fieldoptions: {insert: false, update: false, query: false}})
 @field({name: "manager", fieldoptions: {insert: false, update: false, query: false}})
 @field({name: "department", fieldoptions: {insert: false, update: false, query: false}})
@@ -24,37 +25,7 @@ import { alias, Block, table, column, key, field, FieldTriggerEvent, Trigger, St
 
 export class Employees extends Block
 {
-    constructor()
-    {
-        super();
-
-        this.addFieldTrigger(this.setDepartment,Trigger.PostChange,"department_id");
-        this.addFieldTrigger(this.setName,Trigger.PostChange,["first_name","last_name"]);
-    }
-
-    @listofvalues("department_id")
-    public departments(record:number) : ListOfValues
-    {
-        let lov:ListOfValues =
-        {
-            minlen: 0,
-            postfix: "%",
-
-            title: "Departments block",
-
-            sql: `  select department_id, department_name
-                    from departments
-                    where lower(department_name) like lower(:filter)
-                    order by 2`,
-
-            case: Case.lower,
-            fieldmap: new Map<string,string>()
-        }
-
-        return(lov);
-    }
-
-
+    @trigger(Trigger.PostChange,["first_name","last_name"])
     public async setName(trigger:FieldTriggerEvent) : Promise<boolean>
     {
         let lname:string = this.getValue(trigger.record,"last_name");
@@ -65,14 +36,7 @@ export class Employees extends Block
     }
 
 
-    @trigger(Trigger.WhenValidateField,"hire_date")
-    public async validate(trigger:FieldTriggerEvent) : Promise<boolean>
-    {
-        console.log("block validate "+trigger.field);
-        return(true);
-    }
-
-
+    @trigger(Trigger.PostChange,"department_id")
     public async setDepartment(trigger:FieldTriggerEvent) : Promise<boolean>
     {
         let stmt:Statement = new Statement(
@@ -97,5 +61,28 @@ export class Employees extends Block
         }
 
         return(true);
+    }
+
+
+    @listofvalues("department_id")
+    public departments() : ListOfValues
+    {
+        let lov:ListOfValues =
+        {
+            minlen: 0,
+            postfix: "%",
+
+            title: "Departments block",
+
+            sql: `  select department_id, department_name
+                    from departments
+                    where lower(department_name) like lower(:filter)
+                    order by 2`,
+
+            case: Case.lower,
+            fieldmap: new Map<string,string>()
+        }
+
+        return(lov);
     }
 }

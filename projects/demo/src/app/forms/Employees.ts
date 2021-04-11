@@ -1,6 +1,6 @@
-import { block, Case, FieldTriggerEvent, Form, listofvalues, ListOfValues, trigger, Trigger } from 'forms42';
 import { Component } from '@angular/core';
 import { Employees as Employee } from '../blocks/Employees';
+import { block, Case, Form, listofvalues, ListOfValues } from 'forms42';
 
 
 @Component({
@@ -19,6 +19,7 @@ export class Employees extends Form
         let lov:ListOfValues =
         {
             minlen: 0,
+            force: true,
             postfix: "%",
 
             title: "Departments form",
@@ -33,13 +34,5 @@ export class Employees extends Form
         }
 
         return(lov);
-    }
-
-
-    @trigger(Trigger.WhenValidateField,"empl.hire_date")
-    public async validate(trigger:FieldTriggerEvent) : Promise<boolean>
-    {
-        console.log("Form validate "+trigger.field);
-        return(true);
     }
 }

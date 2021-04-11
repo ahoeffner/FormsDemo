@@ -34,8 +34,7 @@
             <div><span class="label">Job         </span> : <field name="job_id"         size="10"  block="emp"></field></div>
             <div><span class="label">Salary      </span> : <field name="salary"         size="9"   block="emp"></field></div>
             <div><span class="label">Commission  </span> : <field name="commission_pct" size="6"   block="emp"></field></div>
-            <div><span class="label">Department  </span> : <field name="department_id"  size="1"   block="emp"></field></div>
-            <div><button (click)="emp.showListOfValues('department_id')">Change Department</button></div>
+            <div><span class="label">Department</span> : <button class="bobble-button" [style.background-color]="colors.topbar" style="margin-left: 18px;" (click)="emp.showListOfValues('department_id')">Change</button></div>
         </div>
     </div>
 </div>
