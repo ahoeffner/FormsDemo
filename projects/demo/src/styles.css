@@ -1,19 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-.bobble-button
-{
-    border: none;
-    padding: 6px;
-    font-size: 12px;
-    margin: 4px 4px;
-    cursor: pointer;
-    outline: inherit;
-    text-align: center;
-    border-radius: 100%;
-    text-decoration: none;
-    display: inline-block;
-}
-
 div
 {
     font-size: 14px;

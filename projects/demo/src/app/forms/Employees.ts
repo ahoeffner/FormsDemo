@@ -32,7 +32,7 @@ export class Employees extends Form
             case: Case.lower,
 
             fieldmap: new Map<string,string>()
-            .set("department_id","department_id")
+            .set("department_id1","department_id2")
         }
 
         return(lov);
