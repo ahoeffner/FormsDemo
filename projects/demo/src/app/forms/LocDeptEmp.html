@@ -34,3 +34,24 @@
         </div>
     </div>
 </div>
+
+
+<div class="departments">
+    <table>
+        <tr>
+            <th></th>
+            <th><span>Department</span> <span class="left" style="width: 30%;"></span></th>
+            <th><span>Manager</span>    <span class="left" style="width: 40%;"></span></th>
+        </tr>
+
+        <tr class="spacer"><td colspan="3"></td></tr>
+
+        <tr *ngFor="let item of [].constructor(6); let row = index">
+            <td class="indicator" [style.background-color]="getRowIndicator('dept',row)"></td>
+            <td><field row="{{row}}" name="department_name"     size="20"  block="dept"></field></td>
+            <td><field row="{{row}}" name="manager"             size="20"  block="dept"></field></td>
+        </tr>
+
+        <tr class="spacer"><td colspan="3"></td></tr>
+    </table>
+</div>

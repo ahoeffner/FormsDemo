@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Locations } from '../blocks/Locations';
-import { block, Form } from 'forms42';
+import { Departments } from '../blocks/Departments';
+import { block, Form, join } from 'forms42';
 
 
 @Component({
@@ -9,7 +10,10 @@ import { block, Form } from 'forms42';
 })
 
 
-@block({component: Locations, databaseopts: {insert: false}})
+@block({component: Locations, alias: "loc", databaseopts: {insert: false}})
+@block({component: Departments,alias: "dept", databaseopts: {insert: false}})
+
+@join({master: {alias: "loc", key: "primary"}, detail: {alias: "dept", key: "locations"}})
 
 export class LocDeptEmp extends Form
 {
