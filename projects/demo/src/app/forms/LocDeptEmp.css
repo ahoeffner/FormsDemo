@@ -19,13 +19,17 @@
     justify-content: center;
 }
 
-
 .loc-section
 {
     padding-top: 2px;
     display: inline-block;
 }
 
+.dept-section
+{
+    padding-top: 2px;
+    display: inline-block;
+}
 
 table
 {

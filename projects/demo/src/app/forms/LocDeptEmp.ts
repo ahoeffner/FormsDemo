@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Locations } from '../blocks/Locations';
 import { Departments } from '../blocks/Departments';
-import { block, Form, join } from 'forms42';
+import { block, Form, join, field } from 'forms42';
 
 
 @Component({
@@ -12,6 +12,8 @@ import { block, Form, join } from 'forms42';
 
 @block({component: Locations, alias: "loc", databaseopts: {insert: false}})
 @block({component: Departments,alias: "dept", databaseopts: {insert: false}})
+
+@field({name: "loc.location_id", fieldoptions: {insert: false, update: true}})
 
 @join({master: {alias: "loc", key: "primary"}, detail: {alias: "dept", key: "locations"}})
 
