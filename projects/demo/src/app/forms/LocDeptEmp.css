@@ -19,6 +19,18 @@
     justify-content: center;
 }
 
+.departments
+{
+    height: 180px;
+    display: flex;
+    margin-top: 8px;
+    padding-top: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-bottom: 2px;
+    justify-content: center;
+}
+
 .loc-section
 {
     padding-top: 2px;
