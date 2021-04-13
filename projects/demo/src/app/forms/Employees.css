@@ -58,7 +58,10 @@ table
 
 th
 {
+    text-align: left;
     font-weight: normal;
+    padding-left: 20px;
+    display: table-cell;
     border-bottom: 2px solid black;
 }
 

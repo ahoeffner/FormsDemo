@@ -31,6 +31,8 @@ table
 th
 {
     height: 20px;
+    text-align: left;
+    padding-left: 18px;
     font-weight: normal;
     border-bottom: 2px solid black;
 }
