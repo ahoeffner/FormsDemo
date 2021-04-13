@@ -1,5 +1,5 @@
 <table class="page">
-  <tr [ngStyle]="{'background-color': barcolor}">
+  <tr class="topbar" [ngStyle]="{'background-color': barcolor}">
     <td>
       <button class="toggle-button" [ngStyle]="{'color': btncolor, 'background-color': barcolor}" (click)="sidenav=!sidenav">
         <div class="line"></div><div class="line"></div><div class="line"></div>
@@ -12,24 +12,28 @@
       <menuarea></menuarea>
     </td>
 
-    <td style="width: 16px; border-left: 1px solid black;">
-      <button class="close-button" [ngStyle]="{'color': btncolor, 'background-color': barcolor}" (click)="close();">X</button>
+    <td>
+      <table>
+        <tr>
+          <!-- make close go far rigth -->
+          <td style="width: 100%;"></td>
+          <td><button class="close-button" [ngStyle]="{'color': btncolor, 'background-color': barcolor}" (click)="close();">X</button></td>
+        </tr>
+      </table>
     </td>
   </tr>
 
   <tr>
-    <td colspan="2" style="height: 100%;">
-      <table style="height: 100%; padding-top: 16px;" [style.width]="sidenav ? '250px' : '0'" [style.display]="sidenav ? 'block' : 'none'">
+    <td colspan="2">
+      <table class="formlist" [style.width]="sidenav ? '250px' : '1px'" [style.display]="sidenav ? 'block' : 'none'">
             <formlist root="demo"></formlist>
       </table>
     </td>
 
-    <td style="width: 100%; height: 100%;">
-      <table style="height: 100%;">
+    <td colspan="2" class="form" style="background-color: blue;">
+      <table class="form">
         <formarea></formarea>
       </table>
     </td>
-
-    <td></td>
   </tr>
 </table>

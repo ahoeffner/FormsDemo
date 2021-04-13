@@ -4,21 +4,16 @@
     left: 0;
     width: 100%;
     height: 100%;
-    overflow-x: visible;
     position: absolute;
+    overflow-x: visible;
     border-collapse: collapse;
 }
 
 .topbar
 {
     width: 100%;
-    height: 1.75em;
+    height: 1.50em;
     border: 2px solid black;
-}
-
-.toggle-button-area
-{
-    width: 20px;
 }
 
 .toggle-button
@@ -38,7 +33,7 @@
 .close-button
 {
     z-index: 1;
-    width: 20px;
+    width: 16px;
     border: none;
     outline: none;
     font-size: 14px;
@@ -67,14 +62,12 @@
 
 .formlist
 {
-    top: 2em;
-    display: flex;
-    position: absolute;
+    height: 100%;
+    padding-top: 16px;
 }
 
 .form
 {
-    top: 2em;
     width: 100%;
-    position: absolute;
+    height: 100%;
 }
