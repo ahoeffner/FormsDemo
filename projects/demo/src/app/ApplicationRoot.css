@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 99.8%;
     position: absolute;
     overflow-x: visible;
     border-collapse: collapse;
@@ -19,7 +19,7 @@
 .toggle-button
 {
     z-index: 1;
-    width: 20px;
+    width: 15px;
     border: none;
     outline: none;
     font-size: 14px;
@@ -33,7 +33,7 @@
 .close-button
 {
     z-index: 1;
-    width: 16px;
+    width: 15px;
     border: none;
     outline: none;
     font-size: 14px;
@@ -46,7 +46,7 @@
 
 .line
 {
-    width: 18px;
+    width: 15px;
     height: 2px;
     margin-top: 1px;
     margin-bottom: 1px;
