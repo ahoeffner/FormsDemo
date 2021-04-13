@@ -19,7 +19,7 @@
 .toggle-button
 {
     z-index: 1;
-    width: 15px;
+    width: 16px;
     border: none;
     outline: none;
     font-size: 14px;
@@ -33,7 +33,7 @@
 .close-button
 {
     z-index: 1;
-    width: 15px;
+    width: 16px;
     border: none;
     outline: none;
     font-size: 14px;
@@ -46,7 +46,7 @@
 
 .line
 {
-    width: 15px;
+    width: 16px;
     height: 2px;
     margin-top: 1px;
     margin-bottom: 1px;
