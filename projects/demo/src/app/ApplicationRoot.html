@@ -13,13 +13,7 @@
     </td>
 
     <td>
-      <table>
-        <tr>
-          <!-- make close go far rigth -->
-          <td style="width: 100%;"></td>
-          <td><button class="close-button" [ngStyle]="{'color': btncolor, 'background-color': barcolor}" (click)="close();">X</button></td>
-        </tr>
-      </table>
+      <button class="close-button" [ngStyle]="{'color': btncolor, 'background-color': barcolor}" (click)="close();">X</button>
     </td>
   </tr>
 
@@ -30,7 +24,7 @@
       </table>
     </td>
 
-    <td colspan="2" class="form" style="background-color: blue;">
+    <td class="form" style="background-color: blue;">
       <table class="form">
         <formarea></formarea>
       </table>
