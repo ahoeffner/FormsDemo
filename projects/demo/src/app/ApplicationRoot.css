@@ -3,6 +3,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    height: 100%;
     overflow-x: visible;
     position: absolute;
     border-collapse: collapse;
@@ -59,6 +60,7 @@
 
 .menu
 {
+    width: 100%;
     display: flex;
     justify-content: center;
 }
@@ -73,7 +75,6 @@
 .form
 {
     top: 2em;
-    display: flex;
+    width: 100%;
     position: absolute;
-    justify-content: center;
 }
