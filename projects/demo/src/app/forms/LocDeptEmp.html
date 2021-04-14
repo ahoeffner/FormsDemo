@@ -14,9 +14,9 @@
 
             <tr *ngFor="let item of [].constructor(6); let row = index">
                 <td class="indicator" [style.background-color]="getRowIndicator('loc',row)"></td>
-                <td><field row="{{row}}" name="location_id"      size="4"   block="loc" id="table"></field></td>
-                <td><field row="{{row}}" name="city"             size="18"  block="loc" id="table"></field></td>
-                <td><field row="{{row}}" name="country_name"     size="22"  block="loc" id="table"></field></td>
+                <td><field row="{{row}}" name="location_id"      size="4"   block="loc" id="table" group="loc-table"></field></td>
+                <td><field row="{{row}}" name="city"             size="18"  block="loc" id="table" group="loc-table"></field></td>
+                <td><field row="{{row}}" name="country_name"     size="22"  block="loc" id="table" group="loc-table"></field></td>
             </tr>
 
             <tr class="spacer"><td colspan="4"></td></tr>
@@ -25,12 +25,12 @@
 
     <div class="loc-section" style="float: right;">
         <div class="loc-detail">
-            <div><span class="label">ID             </span> : <field name="location_id"      size="4"   block="loc"></field></div>
-            <div><span class="label">Address        </span> : <field name="street_address"   size="20"  block="loc"></field></div>
-            <div><span class="label">Postal Code    </span> : <field name="postal_code"      size="15"  block="loc"></field></div>
-            <div><span class="label">City           </span> : <field name="city"             size="20"  block="loc"></field></div>
-            <div><span class="label">State          </span> : <field name="state_province"   size="20"  block="loc"></field></div>
-            <div><span class="label">Country Code   </span> : <field name="country_id"       size="4"   block="loc"></field></div>
+            <div><span class="label">ID             </span> : <field name="location_id"      size="4"   block="loc" group="loc-details"></field></div>
+            <div><span class="label">Address        </span> : <field name="street_address"   size="20"  block="loc" group="loc-details"></field></div>
+            <div><span class="label">Postal Code    </span> : <field name="postal_code"      size="15"  block="loc" group="loc-details"></field></div>
+            <div><span class="label">City           </span> : <field name="city"             size="20"  block="loc" group="loc-details"></field></div>
+            <div><span class="label">State          </span> : <field name="state_province"   size="20"  block="loc" group="loc-details"></field></div>
+            <div><span class="label">Country Code   </span> : <field name="country_id"       size="4"   block="loc" group="loc-details"></field></div>
         </div>
     </div>
 </div>
@@ -49,8 +49,8 @@
 
             <tr *ngFor="let item of [].constructor(6); let row = index">
                 <td class="indicator" [style.background-color]="getRowIndicator('dept',row)"></td>
-                <td><field row="{{row}}" name="department_name"     size="18"  block="dept"></field></td>
-                <td><field row="{{row}}" name="manager"             size="14"  block="dept"></field></td>
+                <td><field row="{{row}}" name="department_name"     size="18"  block="dept" group="dep-table"></field></td>
+                <td><field row="{{row}}" name="manager"             size="14"  block="dept" group="dep-table"></field></td>
             </tr>
 
             <tr class="spacer"><td colspan="3"></td></tr>

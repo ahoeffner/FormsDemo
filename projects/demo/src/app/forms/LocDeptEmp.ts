@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Locations } from '../blocks/Locations';
 import { Departments } from '../blocks/Departments';
-import { block, Form, join, field } from 'forms42';
+import { block, Form, join, field, init } from 'forms42';
 
 
 @Component({
@@ -17,6 +17,12 @@ import { block, Form, join, field } from 'forms42';
 
 @join({master: {alias: "loc", key: "primary"}, detail: {alias: "dept", key: "locations"}})
 
+
 export class LocDeptEmp extends Form
 {
+    @init
+    public reorder() : void
+    {
+        this.groupfields(["loc-table","loc-details","dep-table"]);
+    }
 }
