@@ -10,7 +10,7 @@ import { block, Form, join, field, init } from 'forms42';
 })
 
 
-@block({component: Locations, alias: "loc", databaseopts: {insert: false}})
+@block({component: Locations, alias: "loc", databaseopts: {insert: true}})
 @block({component: Departments,alias: "dept", databaseopts: {insert: false}})
 
 @field({name: "loc.location_id", fieldoptions: {insert: false, update: true}})
