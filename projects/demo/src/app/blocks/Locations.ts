@@ -1,4 +1,4 @@
-import { Block, column, key, field, FieldTriggerEvent, table, Trigger, Statement, Case, Column, trigger, alias } from "forms42";
+import { Block, column, key, field, FieldTriggerEvent, table, Trigger, Statement, Case, Column, trigger, alias, TriggerEvent } from "forms42";
 
 @alias("loc")
 @table({name: "locations", order: "location_id"})
@@ -18,14 +18,21 @@ import { Block, column, key, field, FieldTriggerEvent, table, Trigger, Statement
 export class Locations extends Block
 {
     @trigger(Trigger.PostChange,"country_id")
+    @trigger(Trigger.WhenValidateField,"country_id")
     public async setCountry(trigger:FieldTriggerEvent) : Promise<boolean>
     {
-        this.setValue(trigger.record,"country_name",
-        await this.execute
-        (
-            new Statement("select country_name from countries").
-            where("country_id",trigger.value),true,true)
-        );
+        let stmt:Statement = new Statement("select country_name from countries").
+                                     where("country_id",trigger.value)
+
+        let country:string = await this.execute(stmt,true,true);
+        this.setValue(trigger.record,"country_name",country);
+
+        if (country == null && trigger.type == Trigger.WhenValidateField)
+        {
+            this.alert("Unknown country-code "+trigger.value,"Validation error");
+            return(false);
+        }
+
         return(true);
     }
 }
