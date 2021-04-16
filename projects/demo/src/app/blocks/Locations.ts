@@ -1,7 +1,7 @@
 import { Block, column, key, field, FieldTriggerEvent, table, Trigger, Statement, Case, Column, trigger, alias } from "forms42";
 
 @alias("loc")
-@table({name: "locations", order: "country_id, city"})
+@table({name: "locations", order: "location_id"})
 
 @column({name: "location_id"    , type: Column.integer   , mandatory: true})
 @column({name: "street_address" , type: Column.varchar   , mandatory: true})

@@ -13,7 +13,7 @@ import { block, Form, join, field, init } from 'forms42';
 @block({component: Locations, alias: "loc", databaseopts: {insert: true}})
 @block({component: Departments,alias: "dept", databaseopts: {insert: false}})
 
-@field({name: "loc.location_id", fieldoptions: {insert: false, update: true}})
+@field({name: "loc.location_id.detail", fieldoptions: {insert: true, update: true}})
 
 @join({master: {alias: "loc", key: "primary"}, detail: {alias: "dept", key: "locations"}})
 
