@@ -44,5 +44,6 @@ export class ApplicationModule
     constructor(app:Application)
     {
         app.title = "Demo";
+        app.theme = "yellow";
     }
 }

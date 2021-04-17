@@ -2,7 +2,9 @@
   <tr class="topbar" [ngStyle]="{'background-color': barcolor}">
     <td>
       <button class="toggle-button" [ngStyle]="{'color': btncolor, 'background-color': barcolor}" (click)="sidenav=!sidenav">
-        <div class="line"></div><div class="line"></div><div class="line"></div>
+        <div class="line" [ngStyle]="{'border-color': btncolor}"></div>
+        <div class="line" [ngStyle]="{'border-color': btncolor}"></div>
+        <div class="line" [ngStyle]="{'border-color': btncolor}"></div>
       </button>
     </td>
 
