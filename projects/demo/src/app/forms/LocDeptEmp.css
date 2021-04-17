@@ -31,6 +31,18 @@
     justify-content: center;
 }
 
+.employees
+{
+    height: 180px;
+    display: flex;
+    margin-top: 8px;
+    padding-top: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-bottom: 2px;
+    justify-content: center;
+}
+
 .loc-detail
 {
     width: 350px;
@@ -51,6 +63,22 @@
 {
     padding-top: 2px;
     display: inline-block;
+}
+
+.emp-section
+{
+    padding-top: 2px;
+    display: inline-block;
+}
+
+.emp-detail
+{
+    width: 350px;
+    height: 152px;
+    padding-top: 3px;
+    margin-left: 16px;
+    padding-left: 32px;
+    padding-bottom: 2px;
 }
 
 table

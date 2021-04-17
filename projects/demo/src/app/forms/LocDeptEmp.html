@@ -4,7 +4,7 @@
     <div class="loc-section" style="float: left;">
         <table>
             <tr>
-                <th style="padding-left: 0;"><span  class="filter" [style.background-color]="getBlockFilter('loc')"></span></th>
+                <th style="padding-left: 0;"><span class="filter" [style.background-color]="getBlockFilter('loc')"></span></th>
                 <th>ID</th>
                 <th>City</th>
                 <th>Country</th>
@@ -40,7 +40,7 @@
     <div class="dept-section">
         <table>
             <tr>
-                <th style="padding-left: 0;"><span  class="filter" [style.background-color]="getBlockFilter('dept')"></span></th>
+                <th style="padding-left: 0;"><span class="filter" [style.background-color]="getBlockFilter('dept')"></span></th>
                 <th>Department</th>
                 <th>Manager</th>
             </tr>
@@ -55,5 +55,39 @@
 
             <tr class="spacer"><td colspan="3"></td></tr>
         </table>
+    </div>
+</div>
+
+<div class="employees">
+    <div class="emp-section" style="float: left;">
+        <table>
+            <tr>
+                <th style="padding-left: 0;"><span class="filter" [style.background-color]="getBlockFilter('emp')"></span></th>
+                <th>Employee</th>
+            </tr>
+
+            <tr class="spacer"><td colspan="2"></td></tr>
+
+            <tr *ngFor="let item of [].constructor(8); let row = index">
+                <td class="indicator" [style.background-color]="getRowIndicator('emp',row)"></td>
+                <td><field row="{{row}}" name="name"        size="20"  block="emp" id="table"></field></td>
+            </tr>
+
+            <tr class="spacer"><td colspan="2"></td></tr>
+        </table>
+    </div>
+
+    <div class="section" style="float: right;">
+        <div class="emp-detail">
+            <div><span class="label">ID          </span> : <field name="employee_id"    size="4"   block="emp"></field></div>
+            <div><span class="label">Last name   </span> : <field name="last_name"      size="15"  block="emp"></field></div>
+            <div><span class="label">First name  </span> : <field name="first_name"     size="15"  block="emp"></field></div>
+            <div><span class="label">Email       </span> : <field name="email"          size="10"  block="emp"></field></div>
+            <div><span class="label">Phone#      </span> : <field name="phone_number"   size="10"  block="emp"></field></div>
+            <div><span class="label">Hiredate    </span> : <field name="hire_date"      size="10"  block="emp"></field></div>
+            <div><span class="label">Job         </span> : <field name="job_id"         size="10"  block="emp"></field></div>
+            <div><span class="label">Salary      </span> : <field name="salary"         size="9"   block="emp"></field></div>
+            <div><span class="label">Commission  </span> : <field name="commission_pct" size="6"   block="emp"></field></div>
+        </div>
     </div>
 </div>

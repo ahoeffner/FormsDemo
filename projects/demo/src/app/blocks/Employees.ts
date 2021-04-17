@@ -16,6 +16,7 @@ import { alias, Block, table, column, key, field, FieldTriggerEvent, Trigger, St
 @column({name: "department_id"      , type: Column.integer    , mandatory: false})
 
 @key("primary",true,"employee_id")
+@key("departments",true,"department_id")
 
 
 @field({name: "name", fieldoptions: {insert: false, update: false, query: false}})
@@ -39,6 +40,8 @@ export class Employees extends Block
     @trigger(Trigger.PostChange,"department_id")
     public async setDepartment(event:FieldTriggerEvent) : Promise<boolean>
     {
+        let deptid:number = +event.value;
+
         let stmt:Statement = new Statement(
 
             `select department_name as dept, first_name||' '||last_name as manager
@@ -47,7 +50,7 @@ export class Employees extends Block
              and dept.department_id = :deptid`
 
         )
-        .bind("deptid",event.value);
+        .bind("deptid",deptid);
 
         let row:any = await this.execute(stmt,true);
 
