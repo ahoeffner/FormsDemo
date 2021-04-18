@@ -79,6 +79,16 @@ select.invalid
     border-style: solid;
 }
 
+input[type="checkbox"]
+{
+    transform: scale(1.25);
+}
+
+input[type="radio"]
+{
+    transform: scale(1.25);
+}
+
 input.lov-search, input.lov-search.focus
 {
     border: none;
