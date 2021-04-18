@@ -6,19 +6,19 @@ import { Application, FormsLibrary, form } from 'forms42';
 
 // Formsdefinitions
 
-import { Test1 } from './forms/Test1';
-import { Test3 } from './forms/Test3';
+import { Wizard       } from './forms/Wizard';
+import { ControlBlock } from './forms/ControlBlock';
 
-import { Countries } from './forms/Countries';
-import { Locations } from './forms/Locations';
-import { Employees } from './forms/Employees';
-import { LocDeptEmp } from './forms/LocDeptEmp';
+import { Countries    } from './forms/Countries';
+import { Locations    } from './forms/Locations';
+import { Employees    } from './forms/Employees';
+import { LocDeptEmp   } from './forms/LocDeptEmp';
 
 
 @NgModule({
   declarations: [
     ApplicationRoot,
-    Test1, Test3, Countries, Locations, Employees, LocDeptEmp
+    ControlBlock, Wizard, Countries, Locations, Employees, LocDeptEmp
   ],
   imports: [
     BrowserModule,
@@ -30,13 +30,12 @@ import { LocDeptEmp } from './forms/LocDeptEmp';
 })
 
 
-//@form(Test1,"Demo Form Test1","/forms/test1")
-//@form(Test3,"Demo Form Test3","/wizards/test3")
+@form(LocDeptEmp  , "Locations"      ,"/forms/Location"        )
+@form(ControlBlock, "Control Block"  ,"/forms/Ctrlblk"         )
 
-@form(LocDeptEmp  ,"Locations"  ,"/forms/Location")
-@form(Countries   ,"Countries"  ,"/master data/countries")
-@form(Locations   ,"Locations"  ,"/master data/locations")
-@form(Employees   ,"Employees"  ,"/master data/Employees")
+@form(Countries   , "Countries"      ,"/master data/countries" )
+@form(Locations   , "Locations"      ,"/master data/locations" )
+@form(Employees   , "Employees"      ,"/master data/Employees" )
 
 
 export class ApplicationModule

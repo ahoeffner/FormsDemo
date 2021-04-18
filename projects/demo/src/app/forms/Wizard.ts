@@ -3,8 +3,7 @@ import { Form, wizard, window, database } from 'forms42';
 
 
 @Component({
-    selector: 'test3',
-    templateUrl: 'Test3.html',
+    templateUrl: 'Wizard.html',
     styleUrls: []
 })
 
@@ -12,7 +11,7 @@ import { Form, wizard, window, database } from 'forms42';
 @window(true,400,300)
 @database({query:true})
 
-export class Test3 extends Form
+export class Wizard extends Form
 {
 	public n:number = 1;
 
