@@ -42,6 +42,43 @@ input.invalid
     border-style: solid;
 }
 
+select, select:disabled, select[disabled="disabled"]
+{
+    border: none;
+    color: black;
+    font-size: 14px;
+    font-weight: normal;
+    background: transparent;
+    border-bottom: 1px dotted black;
+}
+
+select.mandatory
+{
+    border: none;
+    color: black;
+    font-size: 14px;
+    font-weight: normal;
+    background: transparent;
+    border-bottom: 1px solid black;
+}
+
+select:focus
+{
+    border: none;
+    font-size: 14px;
+    outline: 0 !important;
+    background: transparent;
+    border-bottom: 2px solid black;
+}
+
+select.invalid
+{
+    border: 2px;
+    font-size: 14px;
+    border-color:red;
+    border-style: solid;
+}
+
 input.lov-search, input.lov-search.focus
 {
     border: none;

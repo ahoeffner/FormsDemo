@@ -15,10 +15,10 @@ export class CustomMenu implements Menu
         let entries: MenuEntry[] =
         [
             {
-                name: "Custom", options:
+                name: "Forms", options:
                 [
-                    {name: "Test2", action: "test2"},
-                    {name: "Test3", action: "test3"},
+                    {name: "Locations", action: "Locations"},
+                    {name: "Country codes", action: "CountryCodes"},
                 ]
             }
         ];
@@ -39,14 +39,14 @@ class Handler extends MenuHandler
     {
     }
 
-    public test2() : void
+    public Locations() : void
     {
-        this.app.showform("test2");
+        this.app.showform("LocDeptEmp");
     }
 
-    public test3() : void
+    public CountryCodes() : void
     {
-        this.app.showform("test3");
+        this.app.showform("Countries");
     }
 
     public  onConnect(): void

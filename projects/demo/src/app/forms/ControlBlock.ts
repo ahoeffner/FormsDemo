@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CustomMenu } from '../menus/CustomMenu';
-import { Form, init, Block, database, FieldDefinition, FieldType } from 'forms42';
+import { Form, init, Block, database, FieldDefinition, FieldType, FieldTriggerEvent, Trigger } from 'forms42';
 
 
 @Component({
@@ -12,27 +12,66 @@ import { Form, init, Block, database, FieldDefinition, FieldType } from 'forms42
 
 export class ControlBlock extends Form
 {
+	private countrycodes:Map<string,string> =
+		new Map<string,string>();;
+
+
   	@init
 	public async init()
 	{
+		// Set custom menu
 		this.menu = new CustomMenu();
 
-		let country:Block = this.getBlock("country");
-		let record:number = await country.createControlRecord();
+		// Create record in auto-generated block
+		let ctrl:Block = this.getBlock("ctrl");
+		let record:number = await ctrl.createControlRecord();
 
+		// Set dropdown fieldtype
 		let dddef:FieldDefinition = {name: "country.dropdown", type: FieldType.dropdown};
-		country.setFieldDefinition(dddef);
+		ctrl.setFieldDefinition(dddef);
 
-		country.setValue(record,"code",1);
-		country.setValue(record,"country","denmark");
+		// Set checkbox fieldtype
+		let chkdef:FieldDefinition = {name: "country.checkbox", type: FieldType.checkbox};
+		ctrl.setFieldDefinition(chkdef);
 
-		let lov:Map<string,string> = new Map<string,string>();
+		// Set radio fieldtype
+		let rddef:FieldDefinition = {name: "country.radio", type: FieldType.radio};
+		ctrl.setFieldDefinition(rddef);
 
-		lov.set("dk","denmark");
-		lov.set("no","norway");
-		lov.set("sw","sweden");
+		// Set country realm
+		this.countrycodes = new Map<string,string>();
 
-		country.setPossibleValues("country.text",lov);
-		country.setPossibleValues("country.dropdown",lov);
+		this.countrycodes.set("dk","denmark");
+		this.countrycodes.set("no","norway");
+		this.countrycodes.set("sw","sweden");
+
+		ctrl.setPossibleValues("country.text",this.countrycodes,true);
+		ctrl.setPossibleValues("country.dropdown",this.countrycodes,true);
+
+		// Set default value
+		ctrl.setValue(record,"country","dk");
+
+		// Add triggers
+		this.addFieldTrigger(this.search,Trigger.WhenValidateField,"search");
+		this.addFieldTrigger(this.checkcountrycode,Trigger.WhenValidateField,"country");
+	}
+
+
+	public async search(event:FieldTriggerEvent) : Promise<boolean>
+	{
+		this.alert("Search for '"+event.value+"'");
+		return(true);
+	}
+
+
+	public async checkcountrycode(event:FieldTriggerEvent) : Promise<boolean>
+	{
+		if (!this.countrycodes.has(event.value))
+		{
+			this.alert("Illegal value '"+event.value+"' for country code");
+			this.getBlock(event.block).setValue(event.record,event.field,event.previous);
+		}
+
+		return(true);
 	}
 }

@@ -1,8 +1,24 @@
 <span class="title">{{title}}</span>
 
-<div class="ctrlblock">
-    <field name="code" block="country"></field>
-    <field name="country" block="country"></field>
-    <field name="country" block="country" id="text"></field>
-    <field name="country" block="country" id="dropdown"></field>
+<div class="center">
+    <div class="ctrlblock">
+        <div class="row"><span class="label">Search </span> : <field name="search" size="10" block="ctrl"></field></div>
+        <div class="row"></div>
+        <span class="title">Field types</span>
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row"><span class="label">Text </span> : <field name="country" size="3" block="ctrl"></field></div>
+        <div class="row"></div>
+        <div class="row"><span class="label">Dropdown </span> : <field name="country" block="ctrl" id="dropdown"></field></div>
+        <div class="row"><span class="label">List </span> : <field name="country" size="4" block="ctrl" id="text"></field></div>
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row"><span class="plabel">Denmark </span> : <field name="country" block="ctrl" id="radio" value="dk"></field></div>
+        <div class="row"><span class="plabel">Norway  </span> : <field name="country" block="ctrl" id="radio" value="no"></field></div>
+        <div class="row"><span class="plabel">Sweden  </span> : <field name="country" block="ctrl" id="radio" value="sw"></field></div>
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row"><span class="plabel">Denmark </span> : <field name="country" block="ctrl" id="checkbox" value="dk"></field></div>
+    </div>
 </div>
