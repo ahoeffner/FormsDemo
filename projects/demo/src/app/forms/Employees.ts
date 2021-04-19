@@ -27,7 +27,7 @@ export class Employees extends Form
 
             sql: `  select department_id, department_name
                     from departments
-                    where lower(department_name) like lower(:filter)
+                    where lower(department_name) like :filter
                     order by 2`,
 
             case: Case.lower,

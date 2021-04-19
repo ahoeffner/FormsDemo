@@ -30,18 +30,11 @@ import { LocDeptEmp   } from './forms/LocDeptEmp';
 })
 
 
-@form(LocDeptEmp  , "Locations"      ,"/forms/Location"        )
-@form(ControlBlock, "Control Block"  ,"/forms/Ctrlblk"         )
+@form(Countries    , "Countries"      , "/master data/countries"    )
+@form(Locations    , "Locations"      , "/master data/locations"    )
+@form(Employees    , "Employees"      , "/master data/Employees"    )
+@form(LocDeptEmp   , "Locations"      , "/combined views/Location"  )
+@form(ControlBlock , "Control Block"  , "/control blocks/example"   )
 
-@form(Countries   , "Countries"      ,"/master data/countries" )
-@form(Locations   , "Locations"      ,"/master data/locations" )
-@form(Employees   , "Employees"      ,"/master data/Employees" )
 
-
-export class ApplicationModule
-{
-    constructor(app:Application)
-    {
-        app.title = "Demo";
-    }
-}
+export class ApplicationModule {}
