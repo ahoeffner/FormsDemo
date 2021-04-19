@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
+import { FormsLibrary, form } from 'forms42';
 import { ApplicationRoot } from './ApplicationRoot';
-import { MaterialModules } from './MaterialModules';
 import { BrowserModule } from '@angular/platform-browser';
-import { Application, FormsLibrary, form } from 'forms42';
 
 // Formsdefinitions
 
@@ -13,6 +12,7 @@ import { Countries    } from './forms/Countries';
 import { Locations    } from './forms/Locations';
 import { Employees    } from './forms/Employees';
 import { LocDeptEmp   } from './forms/LocDeptEmp';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -22,8 +22,8 @@ import { LocDeptEmp   } from './forms/LocDeptEmp';
   ],
   imports: [
     BrowserModule,
-    MaterialModules,
-    FormsLibrary
+    FormsLibrary,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [ApplicationRoot]

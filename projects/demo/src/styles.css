@@ -119,3 +119,7 @@ input.lov-result:focus
     background: transparent;
     border-bottom: 1px dotted black;
 }
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
