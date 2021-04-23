@@ -16,7 +16,7 @@ import { alias, Block, table, column, key, field, FieldTriggerEvent, Trigger, St
 @column({name: "department_id"      , type: Column.integer    , mandatory: false})
 
 @key("primary",true,"employee_id")
-@key("departments",true,"department_id")
+@key("departments",false,"department_id")
 
 
 @field({name: "name", fieldoptions: {insert: false, update: false, query: false}})

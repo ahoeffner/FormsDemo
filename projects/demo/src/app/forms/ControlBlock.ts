@@ -59,16 +59,23 @@ export class ControlBlock extends Form
 
 	public async search(event:FieldTriggerEvent) : Promise<boolean>
 	{
-		this.alert("Search for '"+event.value+"'");
+		let value:string = event.value;
+
+		if (value == null) value = "";
+		this.alert("Search for '"+value+"'");
+
 		return(true);
 	}
 
 
 	public async checkcountrycode(event:FieldTriggerEvent) : Promise<boolean>
 	{
-		if (!this.countrycodes.has(event.value))
+		let value:string = event.value;
+
+		if (value == null) value = "";
+		if (!this.countrycodes.has(value))
 		{
-			this.alert("Illegal value '"+event.value+"' for country code");
+			this.alert("Illegal value '"+value+"' for country code");
 			this.getBlock(event.block).setValue(event.record,event.field,event.previous);
 		}
 
