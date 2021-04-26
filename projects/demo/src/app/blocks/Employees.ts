@@ -1,4 +1,4 @@
-import { alias, Block, table, column, key, field, FieldTriggerEvent, Trigger, Statement, Column, trigger } from "forms42";
+import { alias, Block, table, column, key, field, FieldTriggerEvent, Trigger, Statement, Column, trigger, Condition, SQLTriggerEvent } from "forms42";
 
 @alias("emp")
 @table({name: "employees", order: "department_id, first_name, last_name"})
@@ -19,8 +19,8 @@ import { alias, Block, table, column, key, field, FieldTriggerEvent, Trigger, St
 @key("departments",false,"department_id")
 
 
-@field({name: "name", fieldoptions: {insert: false, update: false, query: false}})
 @field({name: "manager", fieldoptions: {insert: false, update: false, query: false}})
+@field({name: "employee", fieldoptions: {insert: false, update: false, query: true}})
 @field({name: "department", fieldoptions: {insert: false, update: false, query: false}})
 
 
@@ -32,7 +32,7 @@ export class Employees extends Block
         let lname:string = this.getValue(event.record,"last_name");
         let fname:string = this.getValue(event.record,"first_name");
 
-        this.setValue(event.record,"name",fname+" "+lname);
+        this.setValue(event.record,"employee",fname+" "+lname);
         return(true);
     }
 
@@ -96,6 +96,21 @@ export class Employees extends Block
         return(true);
     }
 
+
+    @trigger(Trigger.PreQuery)
+    public async prequery(event:SQLTriggerEvent) : Promise<boolean>
+    {
+        let text:string = this.getQueryValue("employee");
+
+        if (text != null)
+        {
+            event.stmt.whand("text",text,Column.varchar);
+            let cond:Condition = event.stmt.getCondition().last();
+            cond.setCondition("(to_tsvector('danish',first_name||' '||last_name||' '||email||' '||replace(phone_number,'.',' ')||' '||job_id) @@ websearch_to_tsquery('danish',:"+cond.placeholder+"))");
+        }
+
+        return(true);
+    }
 
 
     private emplimit:number = null;
