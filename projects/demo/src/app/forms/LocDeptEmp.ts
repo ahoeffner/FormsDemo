@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Employees } from '../blocks/Employees';
 import { Locations } from '../blocks/Locations';
 import { Departments } from '../blocks/Departments';
-import { block, Form, join, field, init, FieldTriggerEvent, trigger, Trigger } from 'forms42';
+import { block, Form, join, field, FieldTriggerEvent, trigger, Trigger, keytrigger, KeyTriggerEvent, keymap, Block } from 'forms42';
 
 
 @Component({
@@ -27,13 +27,26 @@ import { block, Form, join, field, init, FieldTriggerEvent, trigger, Trigger } f
 
 export class LocDeptEmp extends Form
 {
-    @init
-    public reorder() : void
+    @keytrigger(keymap.zoom)
+    public async zoom(event:KeyTriggerEvent) : Promise<boolean>
     {
-        this.groupfields(["loc-table","loc-details","dep-table"]);
+        let block:Block = this.getBlock(event.block);
+
+        if (block.displayed(event.record))
+        {
+            if (event.block == "emp")
+            {
+                let params:Map<string,number> = new Map<string,number>();
+                params.set("employee_id",block.getValue(event.record,"employee_id"));
+                
+                this.showform("employees",params);
+            }
+        }
+
+        return(true);
     }
 
-    
+
     // Override as we dont need department name
     @trigger(Trigger.PostChange,"emp.department_id")
     public async setDepartment(event:FieldTriggerEvent) : Promise<boolean>

@@ -1,4 +1,3 @@
-import { StmtModifier } from "@angular/compiler";
 import { alias, Block, table, column, key, field, FieldTriggerEvent, Trigger, Statement, Column, trigger, Condition, SQLTriggerEvent } from "forms42";
 
 @alias("emp")
@@ -109,10 +108,10 @@ export class Employees extends Block
                 text = pair.value;
         });
 
-        // employee is not a database column,so just add
+        // employee is not a database column, so just add
         if (text != null && text.trim().length > 0)
         {
-            event.stmt.whand("text",text,Column.varchar);
+            event.stmt.whand("employee",text,Column.varchar);
             let cond:Condition = event.stmt.getCondition().last();
             cond.setCondition("(to_tsvector('danish',first_name||' '||last_name) @@ websearch_to_tsquery('danish',:"+cond.placeholder+"))");
         }

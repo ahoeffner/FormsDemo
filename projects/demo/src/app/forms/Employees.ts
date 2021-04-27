@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Employees as Employee } from '../blocks/Employees';
-import { block, Case, Form, listofvalues, ListOfValues, connect, disconnect } from 'forms42';
+import { block, Case, Form, listofvalues, ListOfValues, connect, disconnect, show, SQLTriggerEvent, trigger, Trigger } from 'forms42';
+import { NameValuePair } from 'forms42/lib/utils/NameValuePair';
 
 
 @Component({
@@ -12,6 +13,30 @@ import { block, Case, Form, listofvalues, ListOfValues, connect, disconnect } fr
 export class Employees extends Form
 {
     @block({component: Employee}) public emp:Employee;
+
+
+    @show
+    public async autoquery()
+    {
+        if (this.parameters.size > 0)
+            this.executequery();
+    }
+
+
+    @trigger(Trigger.PreQuery,"emp")
+    public async prequery(event:SQLTriggerEvent) : Promise<boolean>
+    {
+        if (this.parameters.size > 0)
+        {
+            this.parameters.forEach((value,column) =>
+            {event.stmt.whand(column,value);});
+
+            this.parameters.clear();
+        }
+
+        return(true);
+    }
+
 
     @listofvalues("emp.department_id")
     public departments() : ListOfValues
