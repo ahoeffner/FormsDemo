@@ -38,8 +38,8 @@ export class LocDeptEmp extends Form
             {
                 let params:Map<string,number> = new Map<string,number>();
                 params.set("employee_id",block.getValue(event.record,"employee_id"));
-                
-                this.showform("employees",params);
+
+                this.callform("employees",params);
             }
         }
 

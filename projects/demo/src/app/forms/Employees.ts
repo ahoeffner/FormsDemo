@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Employees as Employee } from '../blocks/Employees';
-import { block, Case, Form, listofvalues, ListOfValues, connect, disconnect, show, SQLTriggerEvent, trigger, Trigger } from 'forms42';
-import { NameValuePair } from 'forms42/lib/utils/NameValuePair';
+import { block, Case, Form, listofvalues, ListOfValues, connect, disconnect, show, SQLTriggerEvent, trigger, Trigger, window } from 'forms42';
 
 
 @Component({
@@ -10,6 +9,7 @@ import { NameValuePair } from 'forms42/lib/utils/NameValuePair';
 })
 
 
+@window(true,"1024px","550px","40px")
 export class Employees extends Form
 {
     @block({component: Employee}) public emp:Employee;
