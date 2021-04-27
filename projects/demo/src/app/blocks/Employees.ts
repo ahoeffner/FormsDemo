@@ -101,13 +101,20 @@ export class Employees extends Block
     @trigger(Trigger.PreQuery)
     public async prequery(event:SQLTriggerEvent) : Promise<boolean>
     {
-        let text:string = this.getQueryValue("employee");
+        let text:string = null;
 
+        this.searchfilter.forEach((pair) =>
+        {
+            if (pair.name == "employee")
+                text = pair.value;
+        });
+
+        // employee is not a database column,so just add
         if (text != null && text.trim().length > 0)
         {
             event.stmt.whand("text",text,Column.varchar);
             let cond:Condition = event.stmt.getCondition().last();
-            cond.setCondition("(to_tsvector('danish',first_name||' '||last_name||' '||email||' '||replace(phone_number,'.',' ')||' '||job_id) @@ websearch_to_tsquery('danish',:"+cond.placeholder+"))");
+            cond.setCondition("(to_tsvector('danish',first_name||' '||last_name) @@ websearch_to_tsquery('danish',:"+cond.placeholder+"))");
         }
 
         return(true);
