@@ -1,3 +1,4 @@
+import { StmtModifier } from "@angular/compiler";
 import { alias, Block, table, column, key, field, FieldTriggerEvent, Trigger, Statement, Column, trigger, Condition, SQLTriggerEvent } from "forms42";
 
 @alias("emp")
@@ -102,7 +103,7 @@ export class Employees extends Block
     {
         let text:string = this.getQueryValue("employee");
 
-        if (text != null)
+        if (text != null && text.trim().length > 0)
         {
             event.stmt.whand("text",text,Column.varchar);
             let cond:Condition = event.stmt.getCondition().last();
