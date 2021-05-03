@@ -33,6 +33,10 @@ export class Employees extends Form
 
             this.parameters.clear();
         }
+        else
+        {
+            this.emp.prequery(event);
+        }
 
         return(true);
     }

@@ -30,9 +30,10 @@ export class LocDeptEmp extends Form
     @keytrigger(keymap.zoom)
     public async zoom(event:KeyTriggerEvent) : Promise<boolean>
     {
+        this.setCallback(this.afterzoom);
         let block:Block = this.getBlock(event.block);
 
-        if (block.displayed(event.record))
+        if (block.exist(event.record))
         {
             if (event.block == "emp")
             {
@@ -44,6 +45,12 @@ export class LocDeptEmp extends Form
         }
 
         return(true);
+    }
+
+
+    public async afterzoom(form:Form, cancel:boolean)
+    {
+        this.getBlock("emp").executequery();
     }
 
 

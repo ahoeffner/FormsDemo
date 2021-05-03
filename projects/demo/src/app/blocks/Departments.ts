@@ -10,7 +10,7 @@ import { alias, Block, table, column, key, Column, trigger, Trigger, FieldTrigge
 @column({name: "location_id"        , type: Column.integer, mandatory: false})
 
 @key("primary",true,"department_id")
-@key("locations",true,"location_id")
+@key("locations",false,"location_id")
 
 @field({name: "manager", fieldoptions: {navigable: false}})
 
