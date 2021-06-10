@@ -129,11 +129,11 @@ export class Employees extends Block
             return([this.mgrlimit,this.emplimit]);
 
         let stmt:Statement = new Statement
-        (":max = salaryLimit('employee')").returnvalue("max",Column.integer);
+        (":max = salaryLimit('employee')").returnvalue("max",Column.int);
         this.emplimit = await this.execute(stmt,true,true);
 
         stmt = new Statement
-        (":max = salaryLimit('manager')").returnvalue("max",Column.integer);
+        (":max = salaryLimit('manager')").returnvalue("max",Column.int);
         this.mgrlimit = await this.execute(stmt,true,true);
 
         return([this.mgrlimit,this.emplimit]);

@@ -33,7 +33,7 @@ export class LocDeptEmp extends Form
         this.setCallback(this.afterzoom);
         let block:Block = this.getBlock(event.block);
 
-        if (block.exist(event.record))
+        if (!block.empty())
         {
             if (event.block == "emp")
             {
